@@ -8,11 +8,15 @@ import java.awt.Frame;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
+import javax.swing.tree.DefaultMutableTreeNode;
 
 public class Dashboard extends javax.swing.JFrame {
 
     public Dashboard() {
         initComponents();
+        visualizador(new Form1());
+        
+        
     }
     private void visualizador(JPanel p)
     {
@@ -33,16 +37,19 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         b = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         b1 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         b2 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         b3 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
+        panelRound1 = new Estilos.PanelRound();
+        jLabel1 = new javax.swing.JLabel();
         panelfill = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -80,15 +87,6 @@ public class Dashboard extends javax.swing.JFrame {
         jPanel2.setPreferredSize(new java.awt.Dimension(230, 720));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel3.setBackground(new java.awt.Color(175, 191, 144));
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logo_Dashboar.png"))); // NOI18N
-        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 230, 220));
-
-        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 230, 220));
-
         b.setBackground(new java.awt.Color(175, 191, 144));
         b.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         b.setPreferredSize(new java.awt.Dimension(230, 50));
@@ -108,11 +106,15 @@ public class Dashboard extends javax.swing.JFrame {
         });
         b.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 21)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("Iniciar sesion");
-        b.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 230, 30));
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel9.setText("Busqueda");
+        b.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 170, 50));
+
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icono2.png"))); // NOI18N
+        b.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 50));
 
         jPanel2.add(b, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 230, 50));
 
@@ -135,11 +137,15 @@ public class Dashboard extends javax.swing.JFrame {
         });
         b1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 21)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setText("Iniciar sesion");
-        b1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 230, 30));
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel10.setText("Estadistica");
+        b1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 170, 50));
+
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icono3.png"))); // NOI18N
+        b1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 50));
 
         jPanel2.add(b1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 430, 230, 50));
 
@@ -162,11 +168,16 @@ public class Dashboard extends javax.swing.JFrame {
         });
         b2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 21)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setText("Iniciar sesion");
-        b2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 230, 30));
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel11.setText("Registro");
+        jLabel11.setFocusable(false);
+        b2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 170, 50));
+
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icono1.png"))); // NOI18N
+        b2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 50));
 
         jPanel2.add(b2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 230, 50));
 
@@ -189,13 +200,24 @@ public class Dashboard extends javax.swing.JFrame {
         });
         b3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 21)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel12.setText("Iniciar sesion");
-        b3.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 230, 30));
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel12.setText("Form 4");
+        b3.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 170, 50));
 
         jPanel2.add(b3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 500, 230, 50));
+
+        panelRound1.setBackground(new java.awt.Color(175, 191, 144));
+        panelRound1.setRoundBottomLeft(100);
+        panelRound1.setRoundBottomRight(100);
+        panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logo_Dashboar.png"))); // NOI18N
+        panelRound1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 160, 210));
+
+        jPanel2.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 230, 220));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -232,7 +254,7 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_bMouseClicked
 
     private void bMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bMouseEntered
-        b.setBackground(new Color(0xF3EDA1));
+        b.setBackground(new Color(0xDFD98D));
     }//GEN-LAST:event_bMouseEntered
 
     private void bMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bMouseExited
@@ -248,7 +270,7 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_b1MouseClicked
 
     private void b1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b1MouseEntered
-        b1.setBackground(new Color(0xF3EDA1));
+        b1.setBackground(new Color(0xDFD98D));
     }//GEN-LAST:event_b1MouseEntered
 
     private void b1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b1MouseExited
@@ -264,7 +286,7 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_b2MouseClicked
 
     private void b2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b2MouseEntered
-        b2.setBackground(new Color(0xF3EDA1));
+        b2.setBackground(new Color(0xDFD98D));
     }//GEN-LAST:event_b2MouseEntered
 
     private void b2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b2MouseExited
@@ -280,7 +302,7 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_b3MouseClicked
 
     private void b3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b3MouseEntered
-        b3.setBackground(new Color(0xF3EDA1));
+        b3.setBackground(new Color(0xDFD98D));
     }//GEN-LAST:event_b3MouseEntered
 
     private void b3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b3MouseExited
@@ -301,13 +323,16 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private Estilos.PanelRound panelRound1;
     private javax.swing.JPanel panelfill;
     // End of variables declaration//GEN-END:variables
 }

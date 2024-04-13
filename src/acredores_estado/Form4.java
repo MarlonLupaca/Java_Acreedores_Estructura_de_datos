@@ -27,37 +27,33 @@ public class Form4 extends javax.swing.JPanel {
     private void initComponents() {
 
         panelfill = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        panelRound1 = new Estilos.PanelRound();
+        jLabel2 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("form4");
+        panelfill.setBackground(new java.awt.Color(243, 237, 161));
+        panelfill.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout panelfillLayout = new javax.swing.GroupLayout(panelfill);
-        panelfill.setLayout(panelfillLayout);
-        panelfillLayout.setHorizontalGroup(
-            panelfillLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelfillLayout.createSequentialGroup()
-                .addGap(406, 406, 406)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(504, Short.MAX_VALUE))
-        );
-        panelfillLayout.setVerticalGroup(
-            panelfillLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelfillLayout.createSequentialGroup()
-                .addGap(277, 277, 277)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(321, Short.MAX_VALUE))
-        );
+        panelRound1.setBackground(new java.awt.Color(175, 191, 144));
+        panelRound1.setRoundBottomRight(60);
+        panelRound1.setRoundTopRight(60);
+        panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(71, 89, 77));
+        jLabel2.setText("Registrar Acreedor");
+        panelRound1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 340, 70));
+
+        panelfill.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 340, 70));
 
         add(panelfill, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1050, 680));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private Estilos.PanelRound panelRound1;
     private javax.swing.JPanel panelfill;
     // End of variables declaration//GEN-END:variables
 }

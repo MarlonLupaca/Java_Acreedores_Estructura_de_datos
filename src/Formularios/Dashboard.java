@@ -50,6 +50,7 @@ public class Dashboard extends javax.swing.JFrame {
     
     private void execute() {
         ImageIcon img_flecha_derecha = new ImageIcon(getClass().getResource("/imagenes/flecha_derecha.png")); 
+        ImageIcon img_subIcon = new ImageIcon(getClass().getResource("/imagenes/subIcon.png")); 
         
         //menu1
         ImageIcon img_registro = new ImageIcon(getClass().getResource("/imagenes/icono1.png")); 
@@ -69,19 +70,19 @@ public class Dashboard extends javax.swing.JFrame {
         });
         //menu3
         ImageIcon img_estadistica = new ImageIcon(getClass().getResource("/imagenes/icono3.png")); 
-        MenuItem menuEstadistica1 = new MenuItem(null,true,false,img_flecha_derecha,"Dept. y Pliego",new ActionListener() {
+        MenuItem menuEstadistica1 = new MenuItem(img_subIcon,true,false,img_flecha_derecha,"Dept. y Pliego",new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 visualizador(new Form3());
             }
         });
-        MenuItem menuEstadistica2 = new MenuItem(null,true,false,img_flecha_derecha,"Dept. Prov. Dist.",new ActionListener() {
+        MenuItem menuEstadistica2 = new MenuItem(img_subIcon,true,false,img_flecha_derecha,"Dept. Prov. Dist.",new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 visualizador(new Form4());
             }
         });
-        MenuItem menuEstadistica3 = new MenuItem(null,true,false,img_flecha_derecha,"Dept. y Doc.",new ActionListener() {
+        MenuItem menuEstadistica3 = new MenuItem(img_subIcon,true,false,img_flecha_derecha,"Dept. y Doc.",new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 visualizador(new Form5());

@@ -1,21 +1,64 @@
 
 package Formularios;
 
+import Clases.EntidadGubernamental;
+import ImplementacionesDAO.DAOEntidadesImpl;
+import InterfacesDAO.DAOEntidades;
+import TADEstructurasDeDatos.Nodo;
+import TADEstructurasDeDatos.TADListaEnlazadaImpl;
+import TADEstructurasDeDatos.TADListaEnlazadaInterface;
+import TADMetodos_de_ordenamiento.*;
 import java.awt.Color;
+import javax.swing.table.DefaultTableModel;
+import TADBusquedaBinaria.*;
 
 /**
  *
  * @author Marlon_Mendoza
  */
 public class Form3 extends javax.swing.JPanel {
-
-    /**
-     * Creates new form Form1
-     */
+    
+    TADListaEnlazadaInterface listaGlobal = new TADListaEnlazadaImpl();
+    
+    DAOEntidades dao = new DAOEntidadesImpl();
     public Form3() {
         initComponents();
+        cargarDatos();
     }
 
+    private void cargarDatos(){
+        //creacion de lista 
+        TADListaEnlazadaInterface listaEnlazada = new TADListaEnlazadaImpl();
+        //llenado de datos
+        listaEnlazada = dao.cargardatos();
+        
+        TADOrdenamientoInterface ordenamiento = new TADOrdenamientoMergeSortImpl();
+        TADListaEnlazadaImpl listaOrdenada = ordenamiento.OrdenarPorTexto((TADListaEnlazadaImpl) listaEnlazada, 0, listaEnlazada.tamaño(), 4);
+        listaOrdenada.OrdenandoIndices();
+        listaGlobal = listaOrdenada;
+        //modelo de tabla
+        DefaultTableModel modeloTabla = (DefaultTableModel) tabla_acreedores.getModel();
+        modeloTabla.setRowCount(0);
+        
+        //se jala la cabecera
+        Nodo iterador = ((TADListaEnlazadaImpl) listaOrdenada).getCabecera();
+        //se itera la lista 
+        while (iterador != null) {
+            EntidadGubernamental entidad = iterador.getContenido();
+            Object[] rowData = {
+                entidad.getRuc(),
+                
+                entidad.getRemypeDepartamento(),
+                entidad.getRemypeProvincia(),
+                entidad.getRemypeDistrito(),
+                entidad.getMontoDeuda(),
+            };
+            modeloTabla.addRow(rowData);
+            iterador = iterador.getSiguiente();
+        }
+        tabla_acreedores.setModel(modeloTabla);
+        
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -29,17 +72,17 @@ public class Form3 extends javax.swing.JPanel {
         panelRound1 = new Estilos_graficos.PanelRound();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jcDepa = new javax.swing.JComboBox<>();
         b = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        JCProvincias = new javax.swing.JComboBox<>();
         b1 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tabla_acreedores = new javax.swing.JTable();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -65,24 +108,14 @@ public class Form3 extends javax.swing.JPanel {
         jLabel3.setPreferredSize(new java.awt.Dimension(119, 40));
         panelfill.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, -1));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Amazonas", "Áncash", "Apurímac", "Arequipa", "Ayacucho", "Cajamarca", "Callao", "Cusco", "Huancavelica", "Huánuco", "Ica", "Junín", "La Libertad", "Lambayeque", "Lima", "Loreto", "Madre de Dios", "Moquegua", "Pasco", "Piura", "Puno", "San Martín", "Tacna", "Tumbes", "Ucayali" }));
-        jComboBox1.setPreferredSize(new java.awt.Dimension(72, 40));
-        panelfill.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 160, -1));
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+        jcDepa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Amazonas", "Ancash", "Apurimac", "Arequipa", "Ayacucho", "Cajamarca", "Callao", "Cusco", "Huancavelica", "Huanuco", "Ica", "Junin", "La Libertad", "Lambayeque", "Lima", "Loreto", "Madre de Dios", "Moquegua", "Pasco", "Piura", "Puno", "San Martin", "Tacna", "Tumbes", "Ucayali" }));
+        jcDepa.setPreferredSize(new java.awt.Dimension(72, 40));
+        jcDepa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcDepaActionPerformed(evt);
             }
-        ));
-        jScrollPane1.setViewportView(jTable1);
-
-        panelfill.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 970, 440));
+        });
+        panelfill.add(jcDepa, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 160, -1));
 
         b.setBackground(new java.awt.Color(175, 191, 144));
         b.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -110,7 +143,7 @@ public class Form3 extends javax.swing.JPanel {
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icono2.png"))); // NOI18N
         b.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 40, 40));
 
-        panelfill.add(b, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 110, 180, 40));
+        panelfill.add(b, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 550, 180, 40));
 
         jLabel4.setBackground(new java.awt.Color(0, 0, 0));
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -119,9 +152,8 @@ public class Form3 extends javax.swing.JPanel {
         jLabel4.setPreferredSize(new java.awt.Dimension(119, 40));
         panelfill.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 110, 80, -1));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Amazonas", "Áncash", "Apurímac", "Arequipa", "Ayacucho", "Cajamarca", "Callao", "Cusco", "Huancavelica", "Huánuco", "Ica", "Junín", "La Libertad", "Lambayeque", "Lima", "Loreto", "Madre de Dios", "Moquegua", "Pasco", "Piura", "Puno", "San Martín", "Tacna", "Tumbes", "Ucayali" }));
-        jComboBox2.setPreferredSize(new java.awt.Dimension(72, 40));
-        panelfill.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 110, 160, -1));
+        JCProvincias.setPreferredSize(new java.awt.Dimension(72, 40));
+        panelfill.add(JCProvincias, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 110, 160, -1));
 
         b1.setBackground(new java.awt.Color(175, 191, 144));
         b1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -148,13 +180,43 @@ public class Form3 extends javax.swing.JPanel {
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icono1.png"))); // NOI18N
         b1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 40, 40));
 
-        panelfill.add(b1, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 625, 180, 40));
+        panelfill.add(b1, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 600, 180, 40));
+
+        tabla_acreedores.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "RUC", "REMYPE DEP.", "REMYPE PRO.", "REMYPE DISTRI.", "MON. DEUDA"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tabla_acreedores);
+        if (tabla_acreedores.getColumnModel().getColumnCount() > 0) {
+            tabla_acreedores.getColumnModel().getColumn(0).setPreferredWidth(100);
+            tabla_acreedores.getColumnModel().getColumn(1).setPreferredWidth(100);
+            tabla_acreedores.getColumnModel().getColumn(2).setPreferredWidth(100);
+            tabla_acreedores.getColumnModel().getColumn(3).setPreferredWidth(100);
+            tabla_acreedores.getColumnModel().getColumn(4).setPreferredWidth(80);
+        }
+
+        panelfill.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 560, 480));
 
         add(panelfill, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1050, 680));
     }// </editor-fold>//GEN-END:initComponents
 
     private void bMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bMouseClicked
-
+        
     }//GEN-LAST:event_bMouseClicked
 
     private void bMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bMouseEntered
@@ -177,12 +239,47 @@ public class Form3 extends javax.swing.JPanel {
         b1.setBackground(new Color(0xAFBF90));
     }//GEN-LAST:event_b1MouseExited
 
+    private void jcDepaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcDepaActionPerformed
+        TADListaEnlazadaInterface listaFiltrada = new TADListaEnlazadaImpl();
+        TADListaEnlazadaInterface listaOrdenadaProvincias = new TADListaEnlazadaImpl();
+        TADOrdenamientoInterface ordenamiento = new TADOrdenamientoMergeSortImpl();
+
+        TADBusquedaBinariaInterface binaria =  new TADBusquedaBinariaImpl();
+        
+        listaFiltrada = binaria.obtenerOcurrencias((TADListaEnlazadaImpl) listaGlobal, jcDepa.getSelectedItem().toString(), 4);
+        listaFiltrada.OrdenandoIndices();
+        
+        listaOrdenadaProvincias = ordenamiento.OrdenarPorTexto((TADListaEnlazadaImpl) listaFiltrada, 0, listaFiltrada.tamaño(), 5);
+        listaOrdenadaProvincias.OrdenandoIndices();
+        
+        
+        DefaultTableModel modeloTabla = (DefaultTableModel) tabla_acreedores.getModel();
+        modeloTabla.setRowCount(0);
+        Nodo iterador = ((TADListaEnlazadaImpl) listaOrdenadaProvincias).getCabecera();
+        //se itera la lista 
+        while (iterador != null) {
+            EntidadGubernamental entidad = iterador.getContenido();
+            Object[] rowData = {
+                entidad.getRuc(),
+                
+                entidad.getRemypeDepartamento(),
+                entidad.getRemypeProvincia(),
+                entidad.getRemypeDistrito(),
+                entidad.getMontoDeuda(),
+                
+            };
+            modeloTabla.addRow(rowData);
+            iterador = iterador.getSiguiente();
+        }
+        tabla_acreedores.setModel(modeloTabla);
+        
+    }//GEN-LAST:event_jcDepaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> JCProvincias;
     private javax.swing.JPanel b;
     private javax.swing.JPanel b1;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -191,8 +288,9 @@ public class Form3 extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JComboBox<String> jcDepa;
     private Estilos_graficos.PanelRound panelRound1;
     private javax.swing.JPanel panelfill;
+    private javax.swing.JTable tabla_acreedores;
     // End of variables declaration//GEN-END:variables
 }

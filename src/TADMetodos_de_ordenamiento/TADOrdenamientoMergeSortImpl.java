@@ -81,6 +81,27 @@ public class TADOrdenamientoMergeSortImpl implements TADOrdenamientoInterface {
                     derecha.getSiguiente().setAnterior(derecha);
                     return derecha;
                 }
+            case 4:
+                if (izquierda.getContenido().getRemypeDepartamento().compareTo(derecha.getContenido().getRemypeDepartamento()) <= 0) {
+                    izquierda.setSiguiente(merge(izquierda.getSiguiente(), derecha, valor));
+                    izquierda.getSiguiente().setAnterior(izquierda);
+                    return izquierda;
+                } else {
+                    derecha.setSiguiente(merge(izquierda, derecha.getSiguiente(), valor));
+                    derecha.getSiguiente().setAnterior(derecha);
+                    return derecha;
+                } 
+             case 5:
+                if (izquierda.getContenido().getRemypeProvincia().compareTo(derecha.getContenido().getRemypeProvincia()) <= 0) {
+                    izquierda.setSiguiente(merge(izquierda.getSiguiente(), derecha, valor));
+                    izquierda.getSiguiente().setAnterior(izquierda);
+                    return izquierda;
+                } else {
+                    derecha.setSiguiente(merge(izquierda, derecha.getSiguiente(), valor));
+                    derecha.getSiguiente().setAnterior(derecha);
+                    return derecha;
+                }  
+                
             default:
                 throw new IllegalArgumentException("Valor de comparación no válido: " + valor);
 

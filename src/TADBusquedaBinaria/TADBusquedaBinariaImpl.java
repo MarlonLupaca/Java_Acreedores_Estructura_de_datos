@@ -25,6 +25,33 @@ public class TADBusquedaBinariaImpl  implements TADBusquedaBinariaInterface{
                         return PrimerNodo.getIndice();
                     }
                     break;
+                case 4:
+                    if (PrimerNodo.getContenido().getRemypeDepartamento().toUpperCase().contains(valor.toUpperCase())) {
+                        System.err.println(PrimerNodo.getIndice());
+                        System.err.println(PrimerNodo.getContenido().getRemypeDepartamento());
+                        return PrimerNodo.getIndice();
+                    }
+                    break;
+                case 5:
+                    if (PrimerNodo.getContenido().getRemypeProvincia().toUpperCase().contains(valor.toUpperCase())) {
+                        return PrimerNodo.getIndice();
+                    }
+                    break;    
+                case 6:
+                    if (PrimerNodo.getContenido().getRemypeDistrito().toUpperCase().contains(valor.toUpperCase())) {
+                        return PrimerNodo.getIndice();
+                    }
+                    break;    
+                case 7:
+                    if (PrimerNodo.getContenido().getNombrePliego().toUpperCase().contains(valor.toUpperCase())) {
+                        return PrimerNodo.getIndice();
+                    }
+                    break;
+                case 8:
+                    if (PrimerNodo.getContenido().getNumeroEjecutadora().toUpperCase().contains(valor.toUpperCase())) {
+                        return PrimerNodo.getIndice();
+                    }
+                    break;
                 default:
                     throw new AssertionError();
             }
@@ -46,11 +73,40 @@ public class TADBusquedaBinariaImpl  implements TADBusquedaBinariaInterface{
                 case 2:
                     if (UltimoNodo.getContenido().getRazonSocial().toUpperCase().contains(valor.toUpperCase())) {
                         return UltimoNodo.getIndice();
-                    }                    break;
+                    }   
+                    break;
                 case 3:
                     if (UltimoNodo.getContenido().getNombrePliego().toUpperCase().contains(valor.toUpperCase())) {
                         return UltimoNodo.getIndice();
-                    }                    break;
+                    }                    
+                    break;
+                case 4:
+                    if (UltimoNodo.getContenido().getRemypeDepartamento().toUpperCase().contains(valor.toUpperCase())) {
+                        System.err.println(UltimoNodo.getIndice());
+                        System.err.println(UltimoNodo.getContenido().getRemypeDepartamento());
+                        return UltimoNodo.getIndice();
+                    } 
+                    break;
+                case 5:
+                    if (UltimoNodo.getContenido().getRemypeProvincia().toUpperCase().contains(valor.toUpperCase())) {
+                        return UltimoNodo.getIndice();
+                    } 
+                    break;    
+                case 6:
+                    if (UltimoNodo.getContenido().getRemypeDistrito().toUpperCase().contains(valor.toUpperCase())) {
+                        return UltimoNodo.getIndice();
+                    } 
+                    break;    
+                case 7:
+                    if (UltimoNodo.getContenido().getNombrePliego().toUpperCase().contains(valor.toUpperCase())) {
+                        return UltimoNodo.getIndice();
+                    } 
+                    break;
+                case 8:
+                    if (UltimoNodo.getContenido().getNumeroEjecutadora().toUpperCase().contains(valor.toUpperCase())) {
+                        return UltimoNodo.getIndice();
+                    } 
+                    break; 
                 default:
                     throw new AssertionError();
             }
@@ -90,7 +146,37 @@ public class TADBusquedaBinariaImpl  implements TADBusquedaBinariaInterface{
                         indice++;
                         listaConcurrencia.CrearNodo(new Nodo(iterador.getContenido(),indice));
                     }
+                    break;
+                case 4:
+                    if (iterador.getIndice() >= primera && iterador.getIndice() <= ultima && iterador.getContenido().getRemypeDepartamento().toUpperCase().contains(valor.toUpperCase())) {
+                        indice++;
+                        listaConcurrencia.CrearNodo(new Nodo(iterador.getContenido(),indice));
+                    }
+                    break;
+                case 5:
+                    if (iterador.getIndice() >= primera && iterador.getIndice() <= ultima && iterador.getContenido().getRemypeProvincia().toUpperCase().contains(valor.toUpperCase())) {
+                        indice++;
+                        listaConcurrencia.CrearNodo(new Nodo(iterador.getContenido(),indice));
+                    }
                     break;    
+                case 6:
+                    if (iterador.getIndice() >= primera && iterador.getIndice() <= ultima && iterador.getContenido().getRemypeDistrito().toUpperCase().contains(valor.toUpperCase())) {
+                        indice++;
+                        listaConcurrencia.CrearNodo(new Nodo(iterador.getContenido(),indice));
+                    }
+                    break;    
+                case 7:
+                    if (iterador.getIndice() >= primera && iterador.getIndice() <= ultima && iterador.getContenido().getNombrePliego().toUpperCase().contains(valor.toUpperCase())) {
+                        indice++;
+                        listaConcurrencia.CrearNodo(new Nodo(iterador.getContenido(),indice));
+                    }
+                    break;
+                case 8:
+                    if (iterador.getIndice() >= primera && iterador.getIndice() <= ultima && iterador.getContenido().getNumeroEjecutadora().toUpperCase().contains(valor.toUpperCase())) {
+                        indice++;
+                        listaConcurrencia.CrearNodo(new Nodo(iterador.getContenido(),indice));
+                    }
+                    break; 
                 default:
                     throw new AssertionError();
             }

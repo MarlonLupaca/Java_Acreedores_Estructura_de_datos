@@ -42,7 +42,6 @@ public class DAOEntidadesImpl implements DAOEntidades{
                                 campos[14], 
                                 campos[1], 
                                 campos[8],
-                                
                                 campos[10], 
                                 campos[9], 
                                 campos[2], 

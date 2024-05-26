@@ -19,4 +19,5 @@ public interface TADListaEnlazadaInterface{
     public Nodo obtenerNodoMedio(Nodo inicio, Nodo fin);
     public void OrdenandoIndices();
     public boolean esVacia();
+    public boolean contiene(String nombre);
 }

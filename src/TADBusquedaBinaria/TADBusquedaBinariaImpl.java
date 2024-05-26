@@ -4,7 +4,7 @@ import TADEstructurasDeDatos.*;
 
 public class TADBusquedaBinariaImpl  implements TADBusquedaBinariaInterface{
 
-    private int encontrarPrimeraOcurrencia(TADListaEnlazadaImpl lista, String valor, int Opcion) {
+    private int encontrarPrimeraOcurrencia(TADListaEnlazadaImpl lista, String valor, int Opcion, int CadenaExacta) {
         Nodo PrimerNodo = lista.getCabecera();
 
         while (PrimerNodo != null) {
@@ -26,10 +26,16 @@ public class TADBusquedaBinariaImpl  implements TADBusquedaBinariaInterface{
                     }
                     break;
                 case 4:
-                    if (PrimerNodo.getContenido().getRemypeDepartamento().toUpperCase().contains(valor.toUpperCase())) {
-                        System.err.println(PrimerNodo.getIndice());
-                        System.err.println(PrimerNodo.getContenido().getRemypeDepartamento());
-                        return PrimerNodo.getIndice();
+                    
+                    switch (CadenaExacta) {
+                        case 1:
+                            if (PrimerNodo.getContenido().getRemypeDepartamento().toUpperCase().contains(valor.toUpperCase())) {
+                                return PrimerNodo.getIndice();
+                            }
+                        case 2:   
+                            if (PrimerNodo.getContenido().getRemypeDepartamento().toUpperCase().equals(valor.toUpperCase())) {
+                                return PrimerNodo.getIndice();
+                            }
                     }
                     break;
                 case 5:
@@ -61,7 +67,7 @@ public class TADBusquedaBinariaImpl  implements TADBusquedaBinariaInterface{
         return -1;
     }
 
-    private int encontrarUltimaOcurrencia(TADListaEnlazadaImpl lista, String valor, int opcion) {
+    private int encontrarUltimaOcurrencia(TADListaEnlazadaImpl lista, String valor, int opcion, int CadenaExacta) {
         Nodo UltimoNodo = lista.obtenerUltimoNodo();
         while (UltimoNodo != null) {
             switch (opcion) {
@@ -81,9 +87,18 @@ public class TADBusquedaBinariaImpl  implements TADBusquedaBinariaInterface{
                     }                    
                     break;
                 case 4:
+                    
+                    switch (CadenaExacta) {
+                        case 1:
+                            if (UltimoNodo.getContenido().getRemypeDepartamento().toUpperCase().contains(valor.toUpperCase())) {
+                                return UltimoNodo.getIndice();
+                            } 
+                        case 2:   
+                            if (UltimoNodo.getContenido().getRemypeDepartamento().toUpperCase().equals(valor.toUpperCase())) {
+                                return UltimoNodo.getIndice();
+                            } 
+                    }
                     if (UltimoNodo.getContenido().getRemypeDepartamento().toUpperCase().contains(valor.toUpperCase())) {
-                        System.err.println(UltimoNodo.getIndice());
-                        System.err.println(UltimoNodo.getContenido().getRemypeDepartamento());
                         return UltimoNodo.getIndice();
                     } 
                     break;
@@ -117,13 +132,13 @@ public class TADBusquedaBinariaImpl  implements TADBusquedaBinariaInterface{
     }
     
     @Override
-    public TADListaEnlazadaImpl obtenerOcurrencias(TADListaEnlazadaImpl lista, String valor, int opcion) {
+    public TADListaEnlazadaImpl obtenerOcurrencias(TADListaEnlazadaImpl lista, String valor, int opcion , int ValorExacto) {
         
         
         TADListaEnlazadaImpl listaConcurrencia = new TADListaEnlazadaImpl();
         int indice = -1;
-        int primera = encontrarPrimeraOcurrencia(lista, valor, opcion);
-        int ultima = encontrarUltimaOcurrencia(lista, valor, opcion);
+        int primera = encontrarPrimeraOcurrencia(lista, valor, opcion, ValorExacto);
+        int ultima = encontrarUltimaOcurrencia(lista, valor, opcion, ValorExacto);
 
         Nodo iterador = lista.getCabecera();
 

@@ -14,6 +14,8 @@ public class Nodo {
         this.anterior = null; // Inicializamos el nodo anterior como null
         this.indice = IndiceNodo;
     }
+    
+    
 
     public Nodo(EntidadGubernamental contenido, Nodo siguiente, Nodo anterior) {
         this.contenido = contenido;

@@ -70,13 +70,13 @@ public class Dashboard extends javax.swing.JFrame {
         });
         //menu3
         ImageIcon img_estadistica = new ImageIcon(getClass().getResource("/imagenes/icono3.png")); 
-        MenuItem menuEstadistica1 = new MenuItem(img_subIcon,true,false,img_flecha_derecha,"Dept. y Pliego",new ActionListener() {
+        MenuItem menuEstadistica1 = new MenuItem(img_subIcon,true,false,img_flecha_derecha,"Dept. Prov. Dist.",new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 visualizador(new Form3());
             }
         });
-        MenuItem menuEstadistica2 = new MenuItem(img_subIcon,true,false,img_flecha_derecha,"Dept. Prov. Dist.",new ActionListener() {
+        MenuItem menuEstadistica2 = new MenuItem(img_subIcon,true,false,img_flecha_derecha,"Dept. y Pliego",new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 visualizador(new Form4());

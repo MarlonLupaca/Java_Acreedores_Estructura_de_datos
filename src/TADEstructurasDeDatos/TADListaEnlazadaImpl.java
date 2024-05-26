@@ -172,4 +172,17 @@ public class TADListaEnlazadaImpl implements TADListaEnlazadaInterface{
         return cadena.toString();
     }
 
+    @Override
+    public boolean contiene(String nombre) {
+        Nodo iterador = cabecera;
+        while (iterador != null) {
+            EntidadGubernamental entidad = iterador.contenido;
+            if (entidad.getRemypeDepartamento().equals(nombre)) {
+                return true;
+            }
+            iterador = iterador.siguiente;
+        }
+        return false;
+    }
+
 }

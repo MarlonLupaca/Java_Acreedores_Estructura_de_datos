@@ -26,7 +26,7 @@ public class Form2 extends javax.swing.JPanel {
         if (opcionesdeordenamiento.getSelection() != null) {
             if (!txt_busqueda.getText().equals("")) {
                 TADBusquedaBinariaInterface binaria = new TADBusquedaBinariaImpl();
-                TADListaEnlazadaImpl listaConcurenciasFiltrado = binaria.obtenerOcurrencias((TADListaEnlazadaImpl) listaOrdenadaRsBusqueda,ValorBusqueda, opcion);
+                TADListaEnlazadaImpl listaConcurenciasFiltrado = binaria.obtenerOcurrencias((TADListaEnlazadaImpl) listaOrdenadaRsBusqueda,ValorBusqueda, opcion, 1);
                 listaConcurenciasFiltrado.OrdenandoIndices();
 
 
@@ -523,7 +523,7 @@ public class Form2 extends javax.swing.JPanel {
                 opcion = 3;
             } 
         
-            TADListaEnlazadaImpl listaConcurencias =binaria.obtenerOcurrencias((TADListaEnlazadaImpl) listaOrdenadaGlobal,txt_busqueda.getText().toString(), opcion);
+            TADListaEnlazadaImpl listaConcurencias =binaria.obtenerOcurrencias((TADListaEnlazadaImpl) listaOrdenadaGlobal,txt_busqueda.getText().toString(), opcion, 1);
             listaConcurencias.OrdenandoIndices();
             listaOrdenadaRsBusqueda = listaConcurencias;
             DefaultTableModel modeloTabla = (DefaultTableModel) tabla_acreedores.getModel();

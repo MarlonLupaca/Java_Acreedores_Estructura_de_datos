@@ -41,13 +41,13 @@ public class Form2 extends javax.swing.JPanel {
                     Object[] rowData = {
                         entidad.getRuc(),
                         entidad.getRazonSocial(),
-                        entidad.getNombrePliego(),
+                        entidad.getDescPliego(),
                         entidad.getRemypeDepartamento(),
                         entidad.getRemypeProvincia(),
                         entidad.getRemypeDistrito(),
-                        entidad.getNumeroEjecutadora(),
+                        entidad.getSecEjec(),
                         entidad.getMontoDeuda(),
-                        entidad.getNombreSector()
+                        entidad.getDescSector()
                     };
                     modeloTabla.addRow(rowData);
                     iterador = iterador.getSiguiente();
@@ -82,14 +82,15 @@ public class Form2 extends javax.swing.JPanel {
             Object[] rowData = {
                 entidad.getRuc(),
                 entidad.getRazonSocial(),
-                entidad.getNombrePliego(),
+                entidad.getDescPliego(),
                 entidad.getRemypeDepartamento(),
                 entidad.getRemypeProvincia(),
                 entidad.getRemypeDistrito(),
-                entidad.getNumeroEjecutadora(),
+                entidad.getSecEjec(),
                 entidad.getMontoDeuda(),
-                entidad.getNombreSector()
+                entidad.getDescSector()
             };
+
             modeloTabla.addRow(rowData);
             iterador = iterador.getSiguiente();
         }
@@ -536,13 +537,13 @@ public class Form2 extends javax.swing.JPanel {
                 Object[] rowData = {
                     entidad.getRuc(),
                     entidad.getRazonSocial(),
-                    entidad.getNombrePliego(),
+                    entidad.getDescPliego(),
                     entidad.getRemypeDepartamento(),
                     entidad.getRemypeProvincia(),
                     entidad.getRemypeDistrito(),
-                    entidad.getNumeroEjecutadora(),
+                    entidad.getSecEjec(),
                     entidad.getMontoDeuda(),
-                    entidad.getNombreSector()
+                    entidad.getDescSector()
                 };
                 modeloTabla.addRow(rowData);
                 iterador = iterador.getSiguiente();
@@ -580,13 +581,13 @@ public class Form2 extends javax.swing.JPanel {
             Object[] rowData = {
                 entidad.getRuc(),
                 entidad.getRazonSocial(),
-                entidad.getNombrePliego(),  
+                entidad.getDescPliego(),
                 entidad.getRemypeDepartamento(),
                 entidad.getRemypeProvincia(),
                 entidad.getRemypeDistrito(),
-                entidad.getNumeroEjecutadora(),
+                entidad.getSecEjec(),
                 entidad.getMontoDeuda(),
-                entidad.getNombreSector()
+                entidad.getDescSector()
             };
             modeloTabla.addRow(rowData);
             iterador = iterador.getSiguiente();
@@ -618,13 +619,13 @@ public class Form2 extends javax.swing.JPanel {
             Object[] rowData = {
                 entidad.getRuc(),
                 entidad.getRazonSocial(),
-                entidad.getNombrePliego(),
+                entidad.getDescPliego(),
                 entidad.getRemypeDepartamento(),
                 entidad.getRemypeProvincia(),
                 entidad.getRemypeDistrito(),
-                entidad.getNumeroEjecutadora(),
+                entidad.getSecEjec(),
                 entidad.getMontoDeuda(),
-                entidad.getNombreSector()
+                entidad.getDescSector()
             };
             modeloTabla.addRow(rowData);
             iterador = iterador.getSiguiente();
@@ -655,13 +656,13 @@ public class Form2 extends javax.swing.JPanel {
             Object[] rowData = {
                 entidad.getRuc(),
                 entidad.getRazonSocial(),
-                entidad.getNombrePliego(),
+                entidad.getDescPliego(),
                 entidad.getRemypeDepartamento(),
                 entidad.getRemypeProvincia(),
                 entidad.getRemypeDistrito(),
-                entidad.getNumeroEjecutadora(),
+                entidad.getSecEjec(),
                 entidad.getMontoDeuda(),
-                entidad.getNombreSector()
+                entidad.getDescSector()
             };
             modeloTabla.addRow(rowData);
             iterador = iterador.getSiguiente();

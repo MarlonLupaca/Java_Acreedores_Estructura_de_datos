@@ -32,9 +32,9 @@ public class Departamentos {
         switch (departamento) {
             case "Amazonas":
                 return AMAZONAS;
-            case "Áncash":
+            case "Ancash":
                 return ANCASH;
-            case "Apurímac":
+            case "Apurimac":
                 return APURIMAC;
             case "Arequipa":
                 return AREQUIPA;
@@ -48,11 +48,11 @@ public class Departamentos {
                 return CUSCO;
             case "Huancavelica":
                 return HUANCAVELICA;
-            case "Huánuco":
+            case "Huanuco":
                 return HUANUCO;
             case "Ica":
                 return ICA;
-            case "Junín":
+            case "Junin":
                 return JUNIN;
             case "La Libertad":
                 return LA_LIBERTAD;
@@ -72,7 +72,7 @@ public class Departamentos {
                 return PIURA;
             case "Puno":
                 return PUNO;
-            case "San Martín":
+            case "San Martin":
                 return SAN_MARTIN;
             case "Tacna":
                 return TACNA;
@@ -81,7 +81,8 @@ public class Departamentos {
             case "Ucayali":
                 return UCAYALI;
             default:
-                throw new IllegalArgumentException("Departamento no válido: " + departamento);
+                throw new IllegalArgumentException("Departamento no valido: " + departamento);
         }
     }
+
 }

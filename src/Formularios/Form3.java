@@ -2,6 +2,7 @@
 package Formularios;
 
 import Clases.EntidadGubernamental;
+import Estilos_graficos.card;
 import ImplementacionesDAO.DAOEntidadesImpl;
 import InterfacesDAO.DAOEntidades;
 import TADEstructurasDeDatos.Nodo;
@@ -14,10 +15,6 @@ import TADBusquedaBinaria.*;
 import TADListaEnlazadaLibre.NodoAux;
 import java.text.DecimalFormat;
 import TADListaEnlazadaLibre.*;
-import javax.swing.BorderFactory;
-import javax.swing.BoxLayout;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
 
 /**
  *
@@ -34,20 +31,19 @@ public class Form3 extends javax.swing.JPanel {
     }
 
     private void cargarDatos(){
-        //creacion de lista 
+        
         TADListaEnlazadaInterface listaEnlazada = new TADListaEnlazadaImpl();
-        //llenado de datos
+
         listaEnlazada = dao.cargardatos();
         
         TADOrdenamientoInterface ordenamiento = new TADOrdenamientoMergeSortImpl();
         TADListaEnlazadaImpl listaOrdenada = ordenamiento.OrdenarPorTexto((TADListaEnlazadaImpl) listaEnlazada, 0, listaEnlazada.tamaño(), 4);
         listaOrdenada.OrdenandoIndices();
         listaGlobal = listaOrdenada;
-        //modelo de tabla
+   
         DefaultTableModel modeloTabla = (DefaultTableModel) tabla_acreedores.getModel();
         modeloTabla.setRowCount(0);
         
-        //se jala la cabecera
         Nodo iterador = ((TADListaEnlazadaImpl) listaOrdenada).getCabecera();
         //se itera la lista 
         while (iterador != null) {
@@ -67,7 +63,6 @@ public class Form3 extends javax.swing.JPanel {
         
     }
     private void ExtraidoDep(){
-        System.err.println("Provicias");
         TADListaLibreInterface listaUnicos = new TADListaLibreImpl();
 
         DefaultTableModel modeloDefecto = (DefaultTableModel) tabla_acreedores.getModel();
@@ -90,36 +85,22 @@ public class Form3 extends javax.swing.JPanel {
             String nombre = (String) actual.getContenido();
             String deuda = totalizarCategorizado(nombre, 2);
 
-            // Formatea la deuda
             DecimalFormat formatoSoles = new DecimalFormat("###,###,##0.00");
             String totalFormateado = "S/ " + formatoSoles.format((Double.parseDouble(deuda)));
 
             
-            JPanel cardPanel = new JPanel();
-            cardPanel.setLayout(new BoxLayout(cardPanel, BoxLayout.Y_AXIS));
-            cardPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+            card cardPanel = new card(nombre, totalFormateado);
 
-            
-            JLabel nombreEtiqueta = new JLabel("Nombre: " + nombre);
-            JLabel deudaEtiqueta = new JLabel("Deuda: " + totalFormateado);
-
-            // Añade las etiquetas al panel
-            cardPanel.add(nombreEtiqueta);
-            cardPanel.add(deudaEtiqueta);
-
-            // Añade el panel de la card al contenedor principal
             resultadosProvincias.add(cardPanel);
 
-            // Pasa al siguiente nodo
+
             actual = actual.getSiguiente();
         }
 
-        // Actualiza la visualización del panel scroll
-        resultadosDistritos.revalidate();
-        resultadosDistritos.repaint();
+        resultadosProvincias.revalidate();
+        resultadosProvincias.repaint();
     }
     private void ExtraidoDis(){
-        System.err.println("Distritos");
         TADListaLibreInterface listaUnicos = new TADListaLibreImpl();
 
         DefaultTableModel modeloDefecto = (DefaultTableModel) tabla_acreedores.getModel();
@@ -133,6 +114,7 @@ public class Form3 extends javax.swing.JPanel {
                 listaUnicos.crearNodo(nuevo);
             }
         }
+        resultadosDistritos.removeAll();
         
         NodoAux actual = ((TADListaLibreImpl) listaUnicos).getCabecera(); 
 
@@ -140,31 +122,16 @@ public class Form3 extends javax.swing.JPanel {
             String nombre = (String) actual.getContenido();
             String deuda = totalizarCategorizado(nombre, 3);
 
-            // Formatea la deuda
             DecimalFormat formatoSoles = new DecimalFormat("###,###,##0.00");
             String totalFormateado = "S/ " + formatoSoles.format((Double.parseDouble(deuda)));
 
-            // Crea un panel para el card
-            JPanel cardPanel = new JPanel();
-            cardPanel.setLayout(new BoxLayout(cardPanel, BoxLayout.Y_AXIS));
-            cardPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+            card cardPanel = new card(nombre, totalFormateado);
 
-            // Crea las etiquetas
-            JLabel nombreEtiqueta = new JLabel("Nombre: " + nombre);
-            JLabel deudaEtiqueta = new JLabel("Deuda: " + totalFormateado);
-
-            // Añade las etiquetas al panel
-            cardPanel.add(nombreEtiqueta);
-            cardPanel.add(deudaEtiqueta);
-
-            // Añade el panel de la card al contenedor principal
             resultadosDistritos.add(cardPanel);
 
-            // Pasa al siguiente nodo
             actual = actual.getSiguiente();
         }
 
-        // Actualiza la visualización del panel scroll
         resultadosDistritos.revalidate();
         resultadosDistritos.repaint();
         }

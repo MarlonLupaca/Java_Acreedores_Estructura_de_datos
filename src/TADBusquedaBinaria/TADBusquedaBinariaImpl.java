@@ -21,7 +21,7 @@ public class TADBusquedaBinariaImpl  implements TADBusquedaBinariaInterface{
                     }
                     break;
                 case 3:
-                    if (PrimerNodo.getContenido().getNombrePliego().toUpperCase().contains(valor.toUpperCase())) {
+                    if (PrimerNodo.getContenido().getDescPliego().toUpperCase().contains(valor.toUpperCase())) {
                         return PrimerNodo.getIndice();
                     }
                     break;
@@ -49,12 +49,12 @@ public class TADBusquedaBinariaImpl  implements TADBusquedaBinariaInterface{
                     }
                     break;    
                 case 7:
-                    if (PrimerNodo.getContenido().getNombrePliego().toUpperCase().contains(valor.toUpperCase())) {
+                    if (PrimerNodo.getContenido().getDescPliego().toUpperCase().contains(valor.toUpperCase())) {
                         return PrimerNodo.getIndice();
                     }
                     break;
                 case 8:
-                    if (PrimerNodo.getContenido().getNumeroEjecutadora().toUpperCase().contains(valor.toUpperCase())) {
+                    if (PrimerNodo.getContenido().getSecEjec().toUpperCase().contains(valor.toUpperCase())) {
                         return PrimerNodo.getIndice();
                     }
                     break;
@@ -82,7 +82,7 @@ public class TADBusquedaBinariaImpl  implements TADBusquedaBinariaInterface{
                     }   
                     break;
                 case 3:
-                    if (UltimoNodo.getContenido().getNombrePliego().toUpperCase().contains(valor.toUpperCase())) {
+                    if (UltimoNodo.getContenido().getDescPliego().toUpperCase().contains(valor.toUpperCase())) {
                         return UltimoNodo.getIndice();
                     }                    
                     break;
@@ -113,12 +113,12 @@ public class TADBusquedaBinariaImpl  implements TADBusquedaBinariaInterface{
                     } 
                     break;    
                 case 7:
-                    if (UltimoNodo.getContenido().getNombrePliego().toUpperCase().contains(valor.toUpperCase())) {
+                    if (UltimoNodo.getContenido().getDescPliego().toUpperCase().contains(valor.toUpperCase())) {
                         return UltimoNodo.getIndice();
                     } 
                     break;
                 case 8:
-                    if (UltimoNodo.getContenido().getNumeroEjecutadora().toUpperCase().contains(valor.toUpperCase())) {
+                    if (UltimoNodo.getContenido().getSecEjec().toUpperCase().contains(valor.toUpperCase())) {
                         return UltimoNodo.getIndice();
                     } 
                     break; 
@@ -157,7 +157,7 @@ public class TADBusquedaBinariaImpl  implements TADBusquedaBinariaInterface{
                     }
                     break;
                 case 3:
-                    if (iterador.getIndice() >= primera && iterador.getIndice() <= ultima && iterador.getContenido().getNombrePliego().toUpperCase().contains(valor.toUpperCase())) {
+                    if (iterador.getIndice() >= primera && iterador.getIndice() <= ultima && iterador.getContenido().getDescPliego().toUpperCase().contains(valor.toUpperCase())) {
                         indice++;
                         listaConcurrencia.CrearNodo(new Nodo(iterador.getContenido(),indice));
                     }
@@ -181,13 +181,13 @@ public class TADBusquedaBinariaImpl  implements TADBusquedaBinariaInterface{
                     }
                     break;    
                 case 7:
-                    if (iterador.getIndice() >= primera && iterador.getIndice() <= ultima && iterador.getContenido().getNombrePliego().toUpperCase().contains(valor.toUpperCase())) {
+                    if (iterador.getIndice() >= primera && iterador.getIndice() <= ultima && iterador.getContenido().getDescPliego().toUpperCase().contains(valor.toUpperCase())) {
                         indice++;
                         listaConcurrencia.CrearNodo(new Nodo(iterador.getContenido(),indice));
                     }
                     break;
                 case 8:
-                    if (iterador.getIndice() >= primera && iterador.getIndice() <= ultima && iterador.getContenido().getNumeroEjecutadora().toUpperCase().contains(valor.toUpperCase())) {
+                    if (iterador.getIndice() >= primera && iterador.getIndice() <= ultima && iterador.getContenido().getSecEjec().toUpperCase().contains(valor.toUpperCase())) {
                         indice++;
                         listaConcurrencia.CrearNodo(new Nodo(iterador.getContenido(),indice));
                     }

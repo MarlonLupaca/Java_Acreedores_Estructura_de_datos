@@ -72,7 +72,7 @@ public class TADOrdenamientoMergeSortImpl implements TADOrdenamientoInterface {
                 }
 
             case 3:
-                if (izquierda.getContenido().getNombrePliego().compareTo(derecha.getContenido().getNombrePliego()) <= 0) {
+                if (izquierda.getContenido().getDescPliego().compareTo(derecha.getContenido().getDescPliego()) <= 0) {
                     izquierda.setSiguiente(merge(izquierda.getSiguiente(), derecha, valor));
                     izquierda.getSiguiente().setAnterior(izquierda);
                     return izquierda;

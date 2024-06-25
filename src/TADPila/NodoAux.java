@@ -1,20 +1,20 @@
 
-package TADListaEnlazadaLibre;
+package TADPila;
 
-public class NodoAux {
-    Object contenido;
+public class NodoAux<E>{
+    E contenido;
     NodoAux siguiente;
 
-    public NodoAux(Object contenido) {
+    public NodoAux(E contenido) {
         this.contenido = contenido;
         this.siguiente = null;
     }
 
-    public Object getContenido() {
+    public E getContenido() {
         return contenido;
     }
 
-    public void setContenido(Object contenido) {
+    public void setContenido(E contenido) {
         this.contenido = contenido;
     }
 
@@ -25,8 +25,4 @@ public class NodoAux {
     public void setSiguiente(NodoAux siguiente) {
         this.siguiente = siguiente;
     }
-    
-    
-    
-    
 }

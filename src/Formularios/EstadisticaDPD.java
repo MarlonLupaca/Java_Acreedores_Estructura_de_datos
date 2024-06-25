@@ -1,6 +1,8 @@
 
 package Formularios;
 
+import TADPila.TADPilaInterface;
+import TADPila.TADPilaImpl;
 import Clases.EntidadGubernamental;
 import Estilos_graficos.card;
 import ImplementacionesDAO.DAOEntidadesImpl;
@@ -12,9 +14,8 @@ import TADMetodos_de_ordenamiento.*;
 import java.awt.Color;
 import javax.swing.table.DefaultTableModel;
 import TADBusquedaBinaria.*;
-import TADListaEnlazadaLibre.NodoAux;
+import TADPila.NodoAux;
 import java.text.DecimalFormat;
-import TADListaEnlazadaLibre.*;
 
 public class EstadisticaDPD extends javax.swing.JPanel {
     
@@ -61,8 +62,8 @@ public class EstadisticaDPD extends javax.swing.JPanel {
         
     }
     private void ExtraidoDep(){
-        TADListaLibreInterface listaUnicos = new TADListaLibreImpl();
-
+        TADPilaInterface<String> listaUnicos = new TADPilaImpl<String>();
+        
         DefaultTableModel modeloDefecto = (DefaultTableModel) tabla_acreedores.getModel();
         int columnaIndex = 2;
 
@@ -71,13 +72,13 @@ public class EstadisticaDPD extends javax.swing.JPanel {
             
             if (!listaUnicos.contiene(nombre)) {
                 NodoAux nuevo = new NodoAux(nombre);
-                listaUnicos.crearNodo(nuevo);
+                listaUnicos.push(nuevo);
             }
         }
 
         resultadosProvincias.removeAll();
 
-        NodoAux actual = ((TADListaLibreImpl) listaUnicos).getCabecera(); 
+        NodoAux actual = ((TADPilaImpl) listaUnicos).getCabecera(); 
 
             while (actual != null) {
             String nombre = (String) actual.getContenido();
@@ -99,8 +100,8 @@ public class EstadisticaDPD extends javax.swing.JPanel {
         resultadosProvincias.repaint();
     }
     private void ExtraidoDis(){
-        TADListaLibreInterface listaUnicos = new TADListaLibreImpl();
-
+        TADPilaInterface<String> listaUnicos = new TADPilaImpl<String>();
+        
         DefaultTableModel modeloDefecto = (DefaultTableModel) tabla_acreedores.getModel();
         int columnaIndex = 3;
 
@@ -109,12 +110,12 @@ public class EstadisticaDPD extends javax.swing.JPanel {
             
             if (!listaUnicos.contiene(nombre)) {
                 NodoAux nuevo = new NodoAux(nombre);
-                listaUnicos.crearNodo(nuevo);
+                listaUnicos.push(nuevo);
             }
         }
         resultadosDistritos.removeAll();
         
-        NodoAux actual = ((TADListaLibreImpl) listaUnicos).getCabecera(); 
+        NodoAux actual = ((TADPilaImpl) listaUnicos).getCabecera(); 
 
         while (actual != null) {
             String nombre = (String) actual.getContenido();

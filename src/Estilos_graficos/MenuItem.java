@@ -26,8 +26,6 @@ public class MenuItem extends javax.swing.JPanel {
         initComponents();
         lb_icon.setIcon(icon);
         lb_menu.setText(menuName);
-        lb_subicon.setIcon(iconsub);
-        lb_subicon.setVisible(bo);
         this.slayer = slayer;
         
         if (act != null) {
@@ -50,10 +48,9 @@ public class MenuItem extends javax.swing.JPanel {
     private void initComponents() {
 
         lb_menu = new javax.swing.JLabel();
-        lb_subicon = new javax.swing.JLabel();
         lb_icon = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(175, 191, 144));
+        setBackground(new java.awt.Color(64, 78, 103));
         addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 formMouseEntered(evt);
@@ -67,20 +64,16 @@ public class MenuItem extends javax.swing.JPanel {
         });
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lb_menu.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lb_menu.setForeground(new java.awt.Color(0, 0, 0));
+        lb_menu.setFont(new java.awt.Font("Nunito", 0, 18)); // NOI18N
+        lb_menu.setForeground(new java.awt.Color(255, 255, 255));
         lb_menu.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lb_menu.setText("Registro");
         lb_menu.setFocusable(false);
-        add(lb_menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 380, 50));
-
-        lb_subicon.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lb_subicon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icono1.png"))); // NOI18N
-        add(lb_subicon, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 40, 50));
+        add(lb_menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 140, 50));
 
         lb_icon.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lb_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icono1.png"))); // NOI18N
-        add(lb_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 40, 50));
+        add(lb_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 40, 50));
     }// </editor-fold>//GEN-END:initComponents
     
     private boolean showing = false;
@@ -88,10 +81,10 @@ public class MenuItem extends javax.swing.JPanel {
         if(slayer){
             if (showing) {
                 hideMenu();
-                lb_icon.setIcon(new ImageIcon(getClass().getResource("/imagenes/flecha_derecha.png")));
+                lb_icon.setIcon(new ImageIcon(getClass().getResource("/imagenes/flecha_derecha_blanca2.png")));
             } else {
                 showMenu();
-                lb_icon.setIcon(new ImageIcon(getClass().getResource("/imagenes/flecha_abajo.png")));
+                lb_icon.setIcon(new ImageIcon(getClass().getResource("/imagenes/flecha_abajo_blanca2.png")));
             }
             if (act != null) {
                 act.actionPerformed(null);
@@ -112,17 +105,16 @@ public class MenuItem extends javax.swing.JPanel {
     }//GEN-LAST:event_formMousePressed
 
     private void formMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseEntered
-        this.setBackground(new Color(0xDFD98D));
+        this.setBackground(new Color(0x4d5f7c));
     }//GEN-LAST:event_formMouseEntered
 
     private void formMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseExited
-        this.setBackground(new Color(0xAFBF90));
+        this.setBackground(new Color(0x404e67));
     }//GEN-LAST:event_formMouseExited
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel lb_icon;
     private javax.swing.JLabel lb_menu;
-    private javax.swing.JLabel lb_subicon;
     // End of variables declaration//GEN-END:variables
 
     public void hideMenu()

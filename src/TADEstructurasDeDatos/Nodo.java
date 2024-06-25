@@ -6,12 +6,12 @@ public class Nodo {
     int indice;
     EntidadGubernamental contenido;
     Nodo siguiente;
-    Nodo anterior; // Agregamos una referencia al nodo anterior
+    Nodo anterior;
 
     public Nodo(EntidadGubernamental contenido, int IndiceNodo) {
         this.contenido = contenido;
         this.siguiente = null;
-        this.anterior = null; // Inicializamos el nodo anterior como null
+        this.anterior = null;
         this.indice = IndiceNodo;
     }
     

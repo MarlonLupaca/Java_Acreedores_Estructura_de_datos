@@ -3,21 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/strim/OneDrive/Documentos/NetBeansProjects/Acredores_Estado/src/TADListaEnlazadaLibre/TADListaLibreImpl.java</file>
-            <file>file:/C:/Users/strim/OneDrive/Documentos/NetBeansProjects/Acredores_Estado/src/Estilos_graficos/PanelRound.java</file>
-            <file>file:/C:/Users/strim/OneDrive/Documentos/NetBeansProjects/Acredores_Estado/src/TADBusquedaBinaria/TADBusquedaBinariaInterface.java</file>
-            <file>file:/C:/Users/strim/OneDrive/Documentos/NetBeansProjects/Acredores_Estado/src/Formularios/Form3.java</file>
-            <file>file:/C:/Users/strim/OneDrive/Documentos/NetBeansProjects/Acredores_Estado/src/Clases/EntidadGubernamental.java</file>
-            <file>file:/C:/Users/strim/OneDrive/Documentos/NetBeansProjects/Acredores_Estado/src/Formularios/Form2.java</file>
-            <file>file:/C:/Users/strim/OneDrive/Documentos/NetBeansProjects/Acredores_Estado/src/TADListaEnlazadaLibre/TADListaLibreInterface.java</file>
-            <file>file:/C:/Users/strim/OneDrive/Documentos/NetBeansProjects/Acredores_Estado/src/ImplementacionesDAO/DAOEntidadesImpl.java</file>
-            <file>file:/C:/Users/strim/OneDrive/Documentos/NetBeansProjects/Acredores_Estado/src/TADEstructurasDeDatos/Nodo.java</file>
-            <file>file:/C:/Users/strim/OneDrive/Documentos/NetBeansProjects/Acredores_Estado/src/Formularios/Form1.java</file>
-            <file>file:/C:/Users/strim/OneDrive/Documentos/NetBeansProjects/Acredores_Estado/src/TADBusquedaBinaria/TADBusquedaBinariaImpl.java</file>
-            <file>file:/C:/Users/strim/OneDrive/Documentos/NetBeansProjects/Acredores_Estado/src/TADEstructurasDeDatos/TADListaEnlazadaImpl.java</file>
-            <file>file:/C:/Users/strim/OneDrive/Documentos/NetBeansProjects/Acredores_Estado/src/TADEstructurasDeDatos/TADListaEnlazadaInterface.java</file>
-            <file>file:/C:/Users/strim/OneDrive/Documentos/NetBeansProjects/Acredores_Estado/src/Estilos_graficos/MenuItem.java</file>
-            <file>file:/C:/Users/strim/OneDrive/Documentos/NetBeansProjects/Acredores_Estado/src/TADListaEnlazadaLibre/NodoAux.java</file>
+            <file>file:/C:/Users/strim/OneDrive/Documentos/NetBeansProjects/Acredores_Estado/src/Formularios/EstadisticaDPG.java</file>
+            <file>file:/C:/Users/strim/OneDrive/Documentos/NetBeansProjects/Acredores_Estado/src/Formularios/Login.java</file>
+            <file>file:/C:/Users/strim/OneDrive/Documentos/NetBeansProjects/Acredores_Estado/src/Formularios/BuscarAcreedor.java</file>
+            <file>file:/C:/Users/strim/OneDrive/Documentos/NetBeansProjects/Acredores_Estado/src/Formularios/RegistrarAcreedor.java</file>
+            <file>file:/C:/Users/strim/OneDrive/Documentos/NetBeansProjects/Acredores_Estado/src/Formularios/EstadisticaDPD.java</file>
+            <file>file:/C:/Users/strim/OneDrive/Documentos/NetBeansProjects/Acredores_Estado/src/Formularios/Form6.java</file>
+            <file>file:/C:/Users/strim/OneDrive/Documentos/NetBeansProjects/Acredores_Estado/src/Formularios/EstadisticaDD.java</file>
             <file>file:/C:/Users/strim/OneDrive/Documentos/NetBeansProjects/Acredores_Estado/src/Formularios/Dashboard.java</file>
         </group>
     </open-files>

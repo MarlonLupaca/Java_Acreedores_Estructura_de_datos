@@ -1,7 +1,5 @@
 package TADListaEnlazadaLibre;
 
-import TADEstructurasDeDatos.Nodo;
-
 public class TADListaLibreImpl implements TADListaLibreInterface {
 
     private NodoAux cabecera;

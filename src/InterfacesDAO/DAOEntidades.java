@@ -1,7 +1,7 @@
 package InterfacesDAO;
 
 import Clases.EntidadGubernamental;
-import TADEstructurasDeDatos.TADListaEnlazadaImpl;
+import TADListaEnlazadaDoble.TADListaEnlazadaImpl;
 
 public interface DAOEntidades {
     public TADListaEnlazadaImpl cargardatos();

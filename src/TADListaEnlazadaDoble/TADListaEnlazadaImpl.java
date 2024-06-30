@@ -1,4 +1,4 @@
-package TADEstructurasDeDatos;
+package TADListaEnlazadaDoble;
 
 import Clases.*;
 

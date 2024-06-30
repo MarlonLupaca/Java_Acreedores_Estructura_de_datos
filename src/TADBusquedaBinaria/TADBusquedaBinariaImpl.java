@@ -1,6 +1,7 @@
 package TADBusquedaBinaria;
 
-import TADEstructurasDeDatos.*;
+import TADListaEnlazadaDoble.Nodo;
+import TADListaEnlazadaDoble.TADListaEnlazadaImpl;
 
 public class TADBusquedaBinariaImpl  implements TADBusquedaBinariaInterface{
 

@@ -6,13 +6,9 @@ import com.formdev.flatlaf.FlatLightLaf;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Frame;
-import javax.swing.BorderFactory;
 import javax.swing.JFrame;
-import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
-import javax.swing.border.Border;
-
 
 public class Login extends javax.swing.JFrame {
 

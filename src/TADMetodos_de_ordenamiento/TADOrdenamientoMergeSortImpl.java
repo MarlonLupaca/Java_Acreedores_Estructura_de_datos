@@ -1,6 +1,7 @@
 package TADMetodos_de_ordenamiento;
 
-import TADEstructurasDeDatos.*;
+import TADListaEnlazadaDoble.Nodo;
+import TADListaEnlazadaDoble.TADListaEnlazadaImpl;
 
 public class TADOrdenamientoMergeSortImpl implements TADOrdenamientoInterface {
 

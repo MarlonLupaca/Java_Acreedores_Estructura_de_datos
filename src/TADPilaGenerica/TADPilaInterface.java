@@ -1,5 +1,5 @@
 
-package TADPila;
+package TADPilaGenerica;
 
 public interface TADPilaInterface<E>{
     public int tamaño();

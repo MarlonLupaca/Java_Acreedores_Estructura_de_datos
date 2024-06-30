@@ -1,9 +1,9 @@
 
-package TADPila;
+package TADPilaGenerica;
 
 public class NodoAux<E>{
     E contenido;
-    NodoAux siguiente;
+    NodoAux<E> siguiente;
 
     public NodoAux(E contenido) {
         this.contenido = contenido;

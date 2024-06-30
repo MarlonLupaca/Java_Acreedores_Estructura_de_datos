@@ -1,20 +1,20 @@
 
 package Formularios;
 
-import TADPila.TADPilaInterface;
-import TADPila.TADPilaImpl;
+import TADPilaGenerica.TADPilaInterface;
+import TADPilaGenerica.TADPilaImpl;
 import Clases.EntidadGubernamental;
 import Estilos_graficos.card;
 import ImplementacionesDAO.DAOEntidadesImpl;
 import InterfacesDAO.DAOEntidades;
-import TADEstructurasDeDatos.Nodo;
-import TADEstructurasDeDatos.TADListaEnlazadaImpl;
-import TADEstructurasDeDatos.TADListaEnlazadaInterface;
+import TADListaEnlazadaDoble.Nodo;
+import TADListaEnlazadaDoble.TADListaEnlazadaImpl;
+import TADListaEnlazadaDoble.TADListaEnlazadaInterface;
 import TADMetodos_de_ordenamiento.*;
 import java.awt.Color;
 import javax.swing.table.DefaultTableModel;
 import TADBusquedaBinaria.*;
-import TADPila.NodoAux;
+import TADPilaGenerica.NodoAux;
 import java.text.DecimalFormat;
 
 public class EstadisticaDPD extends javax.swing.JPanel {
@@ -79,15 +79,18 @@ public class EstadisticaDPD extends javax.swing.JPanel {
         resultadosProvincias.removeAll();
 
         NodoAux actual = ((TADPilaImpl) listaUnicos).getCabecera(); 
-
-            while (actual != null) {
+        
+        int size = 0;
+        
+        while (actual != null) {
+            size++;
             String nombre = (String) actual.getContenido();
             String deuda = totalizarCategorizado(nombre, 2);
 
             DecimalFormat formatoSoles = new DecimalFormat("###,###,##0.00");
             String totalFormateado = "S/ " + formatoSoles.format((Double.parseDouble(deuda)));
 
-            
+
             card cardPanel = new card(nombre, totalFormateado);
 
             resultadosProvincias.add(cardPanel);
@@ -95,10 +98,12 @@ public class EstadisticaDPD extends javax.swing.JPanel {
 
             actual = actual.getSiguiente();
         }
+        System.out.println("Departamentos: " + (size + 50));
 
         resultadosProvincias.revalidate();
         resultadosProvincias.repaint();
     }
+    
     private void ExtraidoDis(){
         TADPilaInterface<String> listaUnicos = new TADPilaImpl<String>();
         
@@ -116,8 +121,9 @@ public class EstadisticaDPD extends javax.swing.JPanel {
         resultadosDistritos.removeAll();
         
         NodoAux actual = ((TADPilaImpl) listaUnicos).getCabecera(); 
-
+        int size = 0;
         while (actual != null) {
+            size++;
             String nombre = (String) actual.getContenido();
             String deuda = totalizarCategorizado(nombre, 3);
 
@@ -130,6 +136,8 @@ public class EstadisticaDPD extends javax.swing.JPanel {
 
             actual = actual.getSiguiente();
         }
+        
+        System.out.println("Distrito: " + (size + 50));
 
         resultadosDistritos.revalidate();
         resultadosDistritos.repaint();
@@ -137,7 +145,7 @@ public class EstadisticaDPD extends javax.swing.JPanel {
     
     private String totalizarCategorizado(String dato, int columna)
     {
-        DefaultTableModel modeloDefecto = (DefaultTableModel) tabla_acreedores.getModel();
+        DefaultTableModel modeloDefecto = ( DefaultTableModel) tabla_acreedores.getModel();
         int columnaIndex = columna;
         double totalDeuda = 0.0;
         

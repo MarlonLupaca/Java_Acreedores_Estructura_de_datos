@@ -1,8 +1,10 @@
 package Formularios;
+import TADListaEnlazadaDoble.TADListaEnlazadaInterface;
+import TADListaEnlazadaDoble.Nodo;
+import TADListaEnlazadaDoble.TADListaEnlazadaImpl;
 import Clases.EntidadGubernamental;
 import ImplementacionesDAO.*;
 import InterfacesDAO.*;
-import TADEstructurasDeDatos.*;
 import TADMetodos_de_ordenamiento.*;
 import java.awt.Color;
 import javax.swing.table.DefaultTableModel;

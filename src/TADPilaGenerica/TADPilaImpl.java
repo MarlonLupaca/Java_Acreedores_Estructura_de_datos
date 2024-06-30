@@ -1,4 +1,4 @@
-package TADPila;
+package TADPilaGenerica;
 
 public class TADPilaImpl<E> implements TADPilaInterface<E> {
 
@@ -35,7 +35,7 @@ public class TADPilaImpl<E> implements TADPilaInterface<E> {
     @Override
     public E pop() {
         if (this.cabecera == null) {
-            return null; // Pila vacía, devuelve null o lanza una excepción según tu preferencia
+            return null;
         }
         NodoAux<E> nodoPop = this.cabecera;
         this.cabecera = this.cabecera.getSiguiente();

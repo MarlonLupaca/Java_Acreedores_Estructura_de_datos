@@ -10,7 +10,7 @@ public interface TADListaEnlazadaInterface{
     public String retirarFinal();
     public void insertarDentro(Nodo nuevoNodo, int posicion);
     public void RetirarDentro(int ruc);
-    public String imprimirLista();
+    public void imprimirLista();
     public String imprimirListaAlrevez();
     public EntidadGubernamental buscar(int valor);
     public Nodo buscarNodo(int valor);

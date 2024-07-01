@@ -44,6 +44,15 @@ public class EntidadGubernamental{
         this.observacionGlosa = observacionGlosa;
     }
 
+    public EntidadGubernamental(String ruc, double montoDeuda, String descNivelGobierno, String descPliego) {
+        this.ruc = ruc;
+        this.montoDeuda = montoDeuda;
+        this.descNivelGobierno = descNivelGobierno;
+        this.descPliego = descPliego;
+    }
+
+    
+
     public String getRuc() {
         return ruc;
     }
@@ -186,6 +195,34 @@ public class EntidadGubernamental{
 
     public void setObservacionGlosa(String observacionGlosa) {
         this.observacionGlosa = observacionGlosa;
+    }
+    
+    public void imprimirDetallesCompletos() {
+       System.out.println("RUC: " + ruc);
+       System.out.println("Razon Social: " + razonSocial);
+       System.out.println("Remype Departamento: " + remypeDepartamento);
+       System.out.println("Remype Provincia: " + remypeProvincia);
+       System.out.println("Remype Distrito: " + remypeDistrito);
+       System.out.println("Domicilio Fiscal: " + domicilioFiscal);
+       System.out.println("App Informatico Demandas: " + appInformaticoDemandas);
+       System.out.println("SIAF: " + siaf);
+       System.out.println("Estado Deuda: " + estadoDeuda);
+       System.out.println("Tipo Documento: " + tipoDocumento);
+       System.out.println("Doc Deven O Senten Judi: " + docDevenOSentenJudi);
+       System.out.println("Monto Deuda: " + montoDeuda);
+       System.out.println("Desc Nivel Gobierno: " + descNivelGobierno);
+       System.out.println("Desc Sector: " + descSector);
+       System.out.println("Desc Pliego: " + descPliego);
+       System.out.println("Sec Ejec: " + secEjec);
+       System.out.println("Desc Ejecutora: " + descEjecutora);
+       System.out.println("Observacion Glosa: " + observacionGlosa);
+    }
+
+    public void imprimirDetallesBasicos() {
+        System.out.println("RUC: " + ruc);
+        System.out.println("Nivel de gobierno: " + descNivelGobierno);
+        System.out.println("Pliego: " + descPliego);
+        System.out.println("Monto Deuda: " + montoDeuda);
     }
     
     

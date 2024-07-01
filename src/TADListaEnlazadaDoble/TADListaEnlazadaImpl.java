@@ -70,26 +70,15 @@ public class TADListaEnlazadaImpl implements TADListaEnlazadaInterface{
     }
 
     @Override
-    public String imprimirLista() {
-        StringBuilder cadena = new StringBuilder();
+    public void imprimirLista() {
+        
         Nodo iterador = cabecera; // Comenzamos desde la cabecera
         while (iterador != null) {
             EntidadGubernamental entidad = iterador.contenido;
-            cadena.append("Indice: ").append(iterador.indice).append("\n");
-            if (iterador.siguiente != null) {
-                cadena.append("Indice siguiente: ").append(iterador.siguiente.indice).append("\n");
-            } else {
-                cadena.append("Indice siguiente: ").append("Nulo").append("\n");
-            }
-            if (iterador.anterior != null) {
-                cadena.append("Indice anterior: ").append(iterador.anterior.indice).append("\n");
-            } else {
-                cadena.append("Indice anterior: ").append("Nulo").append("\n");
-            }
-            cadena.append("Ruc: ").append(entidad.getRuc()).append("\n");
+            entidad.imprimirDetallesBasicos();
             iterador = iterador.siguiente; // Avanzamos al siguiente nodo
         }
-        return cadena.toString();
+        
     }
 
 

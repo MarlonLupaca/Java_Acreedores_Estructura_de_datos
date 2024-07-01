@@ -62,7 +62,7 @@ public class EstadisticaDPD extends javax.swing.JPanel {
         
     }
     private void ExtraidoDep(){
-        TADPilaInterface<String> listaUnicos = new TADPilaImpl<String>();
+        TADPilaInterface<String> listaUnicos = new TADPilaImpl();
         
         DefaultTableModel modeloDefecto = (DefaultTableModel) tabla_acreedores.getModel();
         int columnaIndex = 2;
@@ -80,10 +80,9 @@ public class EstadisticaDPD extends javax.swing.JPanel {
 
         NodoAux actual = ((TADPilaImpl) listaUnicos).getCabecera(); 
         
-        int size = 0;
         
         while (actual != null) {
-            size++;
+            
             String nombre = (String) actual.getContenido();
             String deuda = totalizarCategorizado(nombre, 2);
 
@@ -98,7 +97,7 @@ public class EstadisticaDPD extends javax.swing.JPanel {
 
             actual = actual.getSiguiente();
         }
-        System.out.println("Departamentos: " + (size + 50));
+        
 
         resultadosProvincias.revalidate();
         resultadosProvincias.repaint();
@@ -121,9 +120,9 @@ public class EstadisticaDPD extends javax.swing.JPanel {
         resultadosDistritos.removeAll();
         
         NodoAux actual = ((TADPilaImpl) listaUnicos).getCabecera(); 
-        int size = 0;
+        
         while (actual != null) {
-            size++;
+            
             String nombre = (String) actual.getContenido();
             String deuda = totalizarCategorizado(nombre, 3);
 
@@ -137,11 +136,12 @@ public class EstadisticaDPD extends javax.swing.JPanel {
             actual = actual.getSiguiente();
         }
         
-        System.out.println("Distrito: " + (size + 50));
+        
 
         resultadosDistritos.revalidate();
         resultadosDistritos.repaint();
-        }
+    }
+    
     
     private String totalizarCategorizado(String dato, int columna)
     {
@@ -257,7 +257,10 @@ public class EstadisticaDPD extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        tabla_acreedores.setGridColor(new java.awt.Color(240, 240, 240));
+        tabla_acreedores.setRowHeight(25);
         tabla_acreedores.setSelectionBackground(new java.awt.Color(97, 119, 150));
+        tabla_acreedores.setShowHorizontalLines(true);
         jScrollPane1.setViewportView(tabla_acreedores);
         if (tabla_acreedores.getColumnModel().getColumnCount() > 0) {
             tabla_acreedores.getColumnModel().getColumn(0).setPreferredWidth(100);

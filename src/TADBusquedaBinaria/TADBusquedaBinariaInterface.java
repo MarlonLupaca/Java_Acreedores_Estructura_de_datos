@@ -1,6 +1,5 @@
 package TADBusquedaBinaria;
 
-import Clases.EntidadGubernamental;
 import TADListaEnlazadaDoble.TADListaEnlazadaImpl;
 
 public interface TADBusquedaBinariaInterface {

@@ -5,8 +5,11 @@
         <group>
             <file>file:/C:/Users/strim/OneDrive/Documentos/NetBeansProjects/Acredores_Estado/src/Formularios/Login.java</file>
             <file>file:/C:/Users/strim/OneDrive/Documentos/NetBeansProjects/Acredores_Estado/src/Formularios/RegistrarAcreedor.java</file>
+            <file>file:/C:/Users/strim/OneDrive/Documentos/NetBeansProjects/Acredores_Estado/src/InterfacesDAO/DAOEntidades.java</file>
             <file>file:/C:/Users/strim/OneDrive/Documentos/NetBeansProjects/Acredores_Estado/src/TADMetodos_de_ordenamiento/TADOrdenamientoMergeSortImpl.java</file>
-            <file>file:/C:/Users/strim/OneDrive/Documentos/NetBeansProjects/Acredores_Estado/src/TADTablaHashGenerica/TADTablahashInterface.java</file>
+            <file>file:/C:/Users/strim/OneDrive/Documentos/NetBeansProjects/Acredores_Estado/src/Estilos_graficos/card.java</file>
+            <file>file:/C:/Users/strim/OneDrive/Documentos/NetBeansProjects/Acredores_Estado/src/Estilos_graficos/PanelRound.java</file>
+            <file>file:/C:/Users/strim/OneDrive/Documentos/NetBeansProjects/Acredores_Estado/src/TADTablaHash/TADTablahashInterface.java</file>
             <file>file:/C:/Users/strim/OneDrive/Documentos/NetBeansProjects/Acredores_Estado/src/TADBusquedaBinaria/TADBusquedaBinariaInterface.java</file>
             <file>file:/C:/Users/strim/OneDrive/Documentos/NetBeansProjects/Acredores_Estado/src/Clases/EntidadGubernamental.java</file>
             <file>file:/C:/Users/strim/OneDrive/Documentos/NetBeansProjects/Acredores_Estado/src/TADMetodos_de_ordenamiento/TADOrdenamientoInterface.java</file>
@@ -14,13 +17,15 @@
             <file>file:/C:/Users/strim/OneDrive/Documentos/NetBeansProjects/Acredores_Estado/src/Formularios/EstadisticaDPG.java</file>
             <file>file:/C:/Users/strim/OneDrive/Documentos/NetBeansProjects/Acredores_Estado/src/TADListaEnlazadaDoble/TADListaEnlazadaInterface.java</file>
             <file>file:/C:/Users/strim/OneDrive/Documentos/NetBeansProjects/Acredores_Estado/src/Formularios/BuscarAcreedor.java</file>
+            <file>file:/C:/Users/strim/OneDrive/Documentos/NetBeansProjects/Acredores_Estado/src/Clases/Departamentos.java</file>
             <file>file:/C:/Users/strim/OneDrive/Documentos/NetBeansProjects/Acredores_Estado/src/TADListaEnlazadaDoble/TADListaEnlazadaImpl.java</file>
+            <file>file:/C:/Users/strim/OneDrive/Documentos/NetBeansProjects/Acredores_Estado/src/ImplementacionesDAO/DAOEntidadesImpl.java</file>
             <file>file:/C:/Users/strim/OneDrive/Documentos/NetBeansProjects/Acredores_Estado/src/Formularios/EstadisticaDPD.java</file>
             <file>file:/C:/Users/strim/OneDrive/Documentos/NetBeansProjects/Acredores_Estado/src/Formularios/Form6.java</file>
             <file>file:/C:/Users/strim/OneDrive/Documentos/NetBeansProjects/Acredores_Estado/src/TADBusquedaBinaria/TADBusquedaBinariaImpl.java</file>
             <file>file:/C:/Users/strim/OneDrive/Documentos/NetBeansProjects/Acredores_Estado/src/Formularios/EstadisticaDD.java</file>
-            <file>file:/C:/Users/strim/OneDrive/Documentos/NetBeansProjects/Acredores_Estado/src/TADTablaHashGenerica/TADTablashashImpl.java</file>
             <file>file:/C:/Users/strim/OneDrive/Documentos/NetBeansProjects/Acredores_Estado/src/Estilos_graficos/MenuItem.java</file>
+            <file>file:/C:/Users/strim/OneDrive/Documentos/NetBeansProjects/Acredores_Estado/src/TADTablaHash/TADTablashashImpl.java</file>
             <file>file:/C:/Users/strim/OneDrive/Documentos/NetBeansProjects/Acredores_Estado/src/Formularios/Dashboard.java</file>
         </group>
     </open-files>

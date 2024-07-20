@@ -44,7 +44,7 @@ public class EstadisticaDPG extends javax.swing.JPanel {
         modeloTabla.setRowCount(0);
         
         Nodo iterador = ((TADListaEnlazadaImpl) listaOrdenada).getCabecera();
-        String fila1, fila2,fila3;
+        String fila1, fila2, fila3;
         
         while (iterador != null) {
             EntidadGubernamental entidad = iterador.getContenido();
@@ -149,7 +149,6 @@ public class EstadisticaDPG extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jcDepa = new javax.swing.JComboBox<>();
         b = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         b1 = new javax.swing.JPanel();
@@ -158,6 +157,7 @@ public class EstadisticaDPG extends javax.swing.JPanel {
         tabla_acreedores = new javax.swing.JTable();
         tex = new javax.swing.JScrollPane();
         resultadosProvincias = new javax.swing.JPanel();
+        jcDepa = new javax.swing.JComboBox<>();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -181,16 +181,6 @@ public class EstadisticaDPG extends javax.swing.JPanel {
         jLabel3.setText("Departamento:");
         jLabel3.setPreferredSize(new java.awt.Dimension(119, 40));
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 100, -1));
-
-        jcDepa.setFont(new java.awt.Font("Nunito", 0, 14)); // NOI18N
-        jcDepa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Amazonas", "Ancash", "Apurimac", "Arequipa", "Ayacucho", "Cajamarca", "Callao", "Cusco", "Huancavelica", "Huanuco", "Ica", "Junin", "La Libertad", "Lambayeque", "Lima", "Loreto", "Madre de Dios", "Moquegua", "Pasco", "Piura", "Puno", "San Martin", "Tacna", "Tumbes", "Ucayali" }));
-        jcDepa.setPreferredSize(new java.awt.Dimension(72, 40));
-        jcDepa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jcDepaActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jcDepa, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 160, -1));
 
         b.setBackground(new java.awt.Color(1, 169, 172));
         b.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -278,6 +268,16 @@ public class EstadisticaDPG extends javax.swing.JPanel {
 
         jPanel1.add(tex, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 40, 180, 460));
 
+        jcDepa.setFont(new java.awt.Font("Nunito", 0, 14)); // NOI18N
+        jcDepa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Amazonas", "Ancash", "Apurimac", "Arequipa", "Ayacucho", "Cajamarca", "Callao", "Cusco", "Huancavelica", "Huanuco", "Ica", "Junin", "La Libertad", "Lambayeque", "Lima", "Loreto", "Madre de Dios", "Moquegua", "Pasco", "Piura", "Puno", "San Martin", "Tacna", "Tumbes", "Ucayali" }));
+        jcDepa.setPreferredSize(new java.awt.Dimension(72, 40));
+        jcDepa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcDepaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jcDepa, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 160, -1));
+
         panelfill.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 970, 580));
 
         add(panelfill, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1050, 680));
@@ -313,52 +313,33 @@ public class EstadisticaDPG extends javax.swing.JPanel {
         TADOrdenamientoInterface ordenamiento = new TADOrdenamientoMergeSortImpl();
 
         TADBusquedaBinariaInterface binaria =  new TADBusquedaBinariaImpl();
-        
+
         listaFiltrada = binaria.obtenerOcurrencias((TADListaEnlazadaImpl) listaGlobal, jcDepa.getSelectedItem().toString(), 4, 2);
         listaFiltrada.OrdenandoIndices();
-        
+
         listaOrdenadaProvincias = ordenamiento.OrdenarPorTexto((TADListaEnlazadaImpl) listaFiltrada, 0, listaFiltrada.tamaño(), 5);
         listaOrdenadaProvincias.OrdenandoIndices();
-        
-        
+
         DefaultTableModel modeloTabla = (DefaultTableModel) tabla_acreedores.getModel();
         modeloTabla.setRowCount(0);
         Nodo iterador = ((TADListaEnlazadaImpl) listaOrdenadaProvincias).getCabecera();
-        //se itera la lista 
-        String fila1, fila2,fila3;
-        
+        //se itera la lista
         while (iterador != null) {
             EntidadGubernamental entidad = iterador.getContenido();
-            if (entidad.getDescNivelGobierno().trim().equals("GOBIERNO LOCAL")) {
-                fila1 = entidad.getDescNivelGobierno().trim();
-                fila2 = "-----------------------";
-                fila3 = "-----------------------";
-            }else if(entidad.getDescNivelGobierno().trim().equals("GOBIERNO NACIONAL")){
-                fila1 = "-----------------------";
-                fila2 = entidad.getDescNivelGobierno().trim();
-                fila3 = "-----------------------";
-            }else if(entidad.getDescNivelGobierno().trim().equals("GOBIERNO REGIONAL")){
-                fila1 = "-----------------------";
-                fila2 = "-----------------------";
-                fila3 = entidad.getDescNivelGobierno().trim();
-            }else{
-                fila1 = "-----------------------";
-                fila2 = "-----------------------";
-                fila3 = "-----------------------";
-            }
             Object[] rowData = {
                 entidad.getRuc(),
-                entidad.getDescPliego(),
-                fila1,
-                fila2,
-                fila3,
-                entidad.getMontoDeuda()
+
+                entidad.getRemypeDepartamento(),
+                entidad.getRemypeProvincia(),
+                entidad.getRemypeDistrito(),
+                entidad.getMontoDeuda(),
+
             };
             modeloTabla.addRow(rowData);
             iterador = iterador.getSiguiente();
         }
         tabla_acreedores.setModel(modeloTabla);
-        
+
     }//GEN-LAST:event_jcDepaActionPerformed
 
 

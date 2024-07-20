@@ -22,6 +22,7 @@ public class EstadisticaDPD extends javax.swing.JPanel {
     TADListaEnlazadaInterface listaGlobal = new TADListaEnlazadaImpl();
     
     DAOEntidades dao = new DAOEntidadesImpl();
+    
     public EstadisticaDPD() {
         initComponents();
         cargarDatos();
@@ -34,8 +35,11 @@ public class EstadisticaDPD extends javax.swing.JPanel {
         listaEnlazada = dao.cargardatos();
         
         TADOrdenamientoInterface ordenamiento = new TADOrdenamientoMergeSortImpl();
+        
         TADListaEnlazadaImpl listaOrdenada = ordenamiento.OrdenarPorTexto((TADListaEnlazadaImpl) listaEnlazada, 0, listaEnlazada.tamaño(), 4);
+        
         listaOrdenada.OrdenandoIndices();
+        
         listaGlobal = listaOrdenada;
    
         DefaultTableModel modeloTabla = (DefaultTableModel) tabla_acreedores.getModel();
@@ -61,6 +65,7 @@ public class EstadisticaDPD extends javax.swing.JPanel {
         tabla_acreedores.setModel(modeloTabla);
         
     }
+    
     private void ExtraidoDep(){
         TADPilaInterface<String> listaUnicos = new TADPilaImpl();
         

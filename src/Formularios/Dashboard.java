@@ -3,6 +3,7 @@ package Formularios;
 
 import Estilos_graficos.MenuItem;
 import java.awt.BorderLayout;
+
 import java.awt.Component;
 import java.awt.Frame;
 import java.awt.event.ActionEvent;
@@ -15,13 +16,14 @@ import javax.swing.SwingUtilities;;
 
 public class Dashboard extends javax.swing.JFrame {
 
-    public Dashboard() {
+    public Dashboard(String nombre, String apellido) {
         initComponents();
         visualizador(new RegistrarAcreedor());
         execute();
-        
-        
+        Nombre.setText(nombre);
+        Apellido.setText(apellido);
     }
+    
     private void visualizador(JPanel p)
     {
         p.setSize(1050, 720);
@@ -47,7 +49,6 @@ public class Dashboard extends javax.swing.JFrame {
     
     private void execute() {
         ImageIcon img_flecha_derecha = new ImageIcon(getClass().getResource("/imagenes/flecha_derecha_blanca2.png")); 
-        ImageIcon img_subIcon = new ImageIcon(getClass().getResource("/imagenes/subIcon.png")); 
         
         //menu1
         ImageIcon img_registro = new ImageIcon(getClass().getResource("/imagenes/icono1.png")); 
@@ -89,15 +90,16 @@ public class Dashboard extends javax.swing.JFrame {
         MenuItem menuEstadistica = new MenuItem(img_flecha_derecha,true,true,img_estadistica,"Estadistica",null,menuEstadistica1,menuEstadistica2,menuEstadistica3);
         //menu4
        
-        MenuItem menuForm4 = new MenuItem(img_flecha_derecha,true,false,img_busqueda,"Form 4",new ActionListener() {
+        MenuItem menuForm4 = new MenuItem(img_flecha_derecha,true,false,img_busqueda,"Descripción",new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                visualizador(new Form6());
+                visualizador(new Descripcion());
             }
         });
         
         
         addMenu(menuRegistro,menuBusqueda,menuEstadistica,menuForm4);
+        
         
     }
 
@@ -111,6 +113,11 @@ public class Dashboard extends javax.swing.JFrame {
         jp_menu = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        exit = new javax.swing.JPanel();
+        Apellido = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        Nombre = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         panelfill = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
@@ -154,10 +161,40 @@ public class Dashboard extends javax.swing.JFrame {
 
         jPanel2.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 230, 70));
 
-        jLabel2.setFont(new java.awt.Font("Nunito", 0, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(235, 238, 243));
-        jLabel2.setText("Navegacion");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 120, 30));
+        jLabel7.setFont(new java.awt.Font("Nunito", 0, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(235, 238, 243));
+        jLabel7.setText("Navegacion");
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 120, 30));
+
+        exit.setBackground(new java.awt.Color(64, 78, 103));
+        exit.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 0, 0, 0, new java.awt.Color(244, 246, 250)));
+        exit.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        exit.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Apellido.setFont(new java.awt.Font("Nunito", 0, 14)); // NOI18N
+        Apellido.setForeground(new java.awt.Color(235, 238, 243));
+        Apellido.setText("Montes de Oca");
+        exit.add(Apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, 120, 20));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/usuario_general.png"))); // NOI18N
+        exit.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, 40));
+
+        Nombre.setFont(new java.awt.Font("Nunito", 0, 14)); // NOI18N
+        Nombre.setForeground(new java.awt.Color(235, 238, 243));
+        Nombre.setText("Eduardo");
+        exit.add(Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 110, 20));
+
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/exit_25.png"))); // NOI18N
+        jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
+            }
+        });
+        exit.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, 30, 60));
+
+        jPanel2.add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 640, 230, 80));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -230,14 +267,25 @@ public class Dashboard extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jLabel3MouseClicked
 
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+        Login newframe = new Login();
+        newframe.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jLabel2MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Apellido;
     private javax.swing.JLabel MINIMIZAR;
+    private javax.swing.JLabel Nombre;
+    private javax.swing.JPanel exit;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

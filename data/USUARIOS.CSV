@@ -1,0 +1,11 @@
+USUARIO,NOMBRE,APELLIDO,CARGO,SEXO,CONTRASENA
+jdoe,John,Doe,Empleado,Femenino,123456
+asmith,Alice,Smith,Administrador,Femenino,alice123
+bwhite,Bob,White,Empleado,Masculino,bobwhite
+mclark,Michael,Clark,Empleado,Masculino,michael2024
+jane,Jane,Doe,Empleado,Femenino,jane321
+tjohnson,Tom,Johnson,Administrador,Masculino,tjohnson2024
+hgarcia,Hannah,Garcia,Empleado,Femenino,hannahg
+mrodriguez,Martin,Rodriguez,Administrador,Masculino,martinr
+ksmith,Karen,Smith,Empleado,Femenino,karen123admin,Marlon Diego,Lupaca Mendoza,Administrador,Masculino,admin
+admin,Marlon Diego,Lupaca Mendoza,Administrador,Masculino,admin

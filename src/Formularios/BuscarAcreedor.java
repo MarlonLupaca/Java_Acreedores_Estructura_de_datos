@@ -18,6 +18,7 @@ public class BuscarAcreedor extends javax.swing.JPanel {
     
     TADListaEnlazadaInterface listaOrdenadaGlobal = new TADListaEnlazadaImpl();
     TADListaEnlazadaInterface listaOrdenadaRsBusqueda = new TADListaEnlazadaImpl();
+    TADListaEnlazadaInterface listaQueSeExportara = new TADListaEnlazadaImpl();
     DAOEntidades dao = new DAOEntidadesImpl();
     
     public BuscarAcreedor() {
@@ -35,6 +36,7 @@ public class BuscarAcreedor extends javax.swing.JPanel {
 
                 DefaultTableModel modeloTabla = (DefaultTableModel) tabla_acreedores.getModel();
                 modeloTabla.setRowCount(0);
+                listaQueSeExportara = listaConcurenciasFiltrado;
 
                 // Llenado de la tabla
                 Nodo iterador = listaConcurenciasFiltrado.getCabecera();
@@ -58,6 +60,7 @@ public class BuscarAcreedor extends javax.swing.JPanel {
             }else {
                 JOptionPane.showMessageDialog(null, "Realice una busqueda para aplicar filtro");
                 txt_busqueda.setText("");
+                txt_busqueda.requestFocusInWindow();
             }
             
         }else {
@@ -78,7 +81,7 @@ public class BuscarAcreedor extends javax.swing.JPanel {
         tabla_acreedores.getTableHeader().setBackground(new Color(0x617796));
         tabla_acreedores.getTableHeader().setForeground(Color.WHITE);
         
-        
+        listaQueSeExportara = listaEnlazada;
         //se jala la cabecera
         Nodo iterador = ((TADListaEnlazadaImpl) listaEnlazada).getCabecera();
         //se itera la lista 
@@ -406,7 +409,16 @@ public class BuscarAcreedor extends javax.swing.JPanel {
     }//GEN-LAST:event_bMouseExited
 
     private void b1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b1MouseClicked
-        // TODO add your handling code here:
+
+        dao.ExportaCSV(panelfill, (TADListaEnlazadaImpl) listaQueSeExportara);
+        grupo2.clearSelection();
+        opcionesdeordenamiento.clearSelection();
+        txt_busqueda.setText("");
+        f_dep.setText("");
+        f_dis.setText("");
+        f_eje.setText("");
+        f_pli.setText("");
+        f_pro.setText("");
     }//GEN-LAST:event_b1MouseClicked
 
     private void b1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b1MouseEntered
@@ -434,7 +446,8 @@ public class BuscarAcreedor extends javax.swing.JPanel {
             listaOrdenadaRsBusqueda = listaConcurencias;
             DefaultTableModel modeloTabla = (DefaultTableModel) tabla_acreedores.getModel();
             modeloTabla.setRowCount(0);
-
+            
+            listaQueSeExportara = listaConcurencias;
             // Llenado de la tabla
             Nodo iterador = listaConcurencias.getCabecera();
             while (iterador != null) {
@@ -524,6 +537,7 @@ public class BuscarAcreedor extends javax.swing.JPanel {
         DefaultTableModel modeloTabla = (DefaultTableModel) tabla_acreedores.getModel();
         modeloTabla.setRowCount(0);
 
+        listaQueSeExportara = listaOrdenada;
         // Llenado de la tabla
         Nodo iterador = listaOrdenada.getCabecera();
         while (iterador != null) {
@@ -561,6 +575,7 @@ public class BuscarAcreedor extends javax.swing.JPanel {
         DefaultTableModel modeloTabla = (DefaultTableModel) tabla_acreedores.getModel();
         modeloTabla.setRowCount(0);
 
+        listaQueSeExportara =  listaOrdenada;
         // Llenado de la tabla
         Nodo iterador = listaOrdenada.getCabecera();
         while (iterador != null) {
@@ -598,6 +613,7 @@ public class BuscarAcreedor extends javax.swing.JPanel {
         DefaultTableModel modeloTabla = (DefaultTableModel) tabla_acreedores.getModel();
         modeloTabla.setRowCount(0);
 
+        listaQueSeExportara =  listaOrdenada;
         // Llenado de la tabla
         Nodo iterador = listaOrdenada.getCabecera();
         while (iterador != null) {

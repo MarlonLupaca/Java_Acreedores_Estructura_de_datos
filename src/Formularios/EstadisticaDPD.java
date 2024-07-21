@@ -20,6 +20,7 @@ import java.text.DecimalFormat;
 public class EstadisticaDPD extends javax.swing.JPanel {
     
     TADListaEnlazadaInterface listaGlobal = new TADListaEnlazadaImpl();
+    TADListaEnlazadaInterface listaQueSeExportara = new TADListaEnlazadaImpl();
     
     DAOEntidades dao = new DAOEntidadesImpl();
     
@@ -47,7 +48,10 @@ public class EstadisticaDPD extends javax.swing.JPanel {
         tabla_acreedores.getTableHeader().setForeground(Color.WHITE);
         modeloTabla.setRowCount(0);
         
+        listaQueSeExportara = listaOrdenada;
+        
         Nodo iterador = ((TADListaEnlazadaImpl) listaOrdenada).getCabecera();
+        
         //se itera la lista 
         while (iterador != null) {
             EntidadGubernamental entidad = iterador.getContenido();
@@ -218,7 +222,7 @@ public class EstadisticaDPD extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Nunito", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Montos acumulados por Depto., Prov. y Distrito");
-        panelfill.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 980, 30));
+        panelfill.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 980, 30));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(250, 250, 250), new java.awt.Color(250, 250, 250), new java.awt.Color(250, 250, 250), new java.awt.Color(250, 250, 250)));
@@ -275,6 +279,9 @@ public class EstadisticaDPD extends javax.swing.JPanel {
             tabla_acreedores.getColumnModel().getColumn(4).setPreferredWidth(80);
         }
 
+        jScrollPane1.getVerticalScrollBar().setUnitIncrement(16);
+        jScrollPane1.getVerticalScrollBar().setBlockIncrement(50);
+
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 420, 480));
 
         panelRound2.setBackground(new java.awt.Color(255, 255, 255));
@@ -304,6 +311,9 @@ public class EstadisticaDPD extends javax.swing.JPanel {
         resultadosProvincias.setLayout(new javax.swing.BoxLayout(resultadosProvincias, javax.swing.BoxLayout.Y_AXIS));
         tex.setViewportView(resultadosProvincias);
 
+        tex.getVerticalScrollBar().setUnitIncrement(16);
+        tex.getVerticalScrollBar().setBlockIncrement(50);
+
         panelRound2.add(tex, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 200, 330));
 
         tex1.setBorder(null);
@@ -311,6 +321,9 @@ public class EstadisticaDPD extends javax.swing.JPanel {
         resultadosDistritos.setBackground(new java.awt.Color(255, 255, 255));
         resultadosDistritos.setLayout(new javax.swing.BoxLayout(resultadosDistritos, javax.swing.BoxLayout.Y_AXIS));
         tex1.setViewportView(resultadosDistritos);
+
+        tex1.getVerticalScrollBar().setUnitIncrement(16);
+        tex1.getVerticalScrollBar().setBlockIncrement(50);
 
         panelRound2.add(tex1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 70, 200, 330));
 
@@ -379,7 +392,7 @@ public class EstadisticaDPD extends javax.swing.JPanel {
 
         jPanel1.add(b, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 530, 110, 30));
 
-        panelfill.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 980, 590));
+        panelfill.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 1000, 600));
 
         add(panelfill, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1050, 680));
     }// </editor-fold>//GEN-END:initComponents
@@ -399,7 +412,7 @@ public class EstadisticaDPD extends javax.swing.JPanel {
     }//GEN-LAST:event_bMouseExited
 
     private void b1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b1MouseClicked
-        // TODO add your handling code here:
+        dao.ExportaCSV(panelfill, (TADListaEnlazadaImpl) listaQueSeExportara);
     }//GEN-LAST:event_b1MouseClicked
 
     private void b1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b1MouseEntered
@@ -426,6 +439,9 @@ public class EstadisticaDPD extends javax.swing.JPanel {
         
         DefaultTableModel modeloTabla = (DefaultTableModel) tabla_acreedores.getModel();
         modeloTabla.setRowCount(0);
+        
+        listaQueSeExportara = listaOrdenadaProvincias;
+                
         Nodo iterador = ((TADListaEnlazadaImpl) listaOrdenadaProvincias).getCabecera();
         //se itera la lista 
         while (iterador != null) {

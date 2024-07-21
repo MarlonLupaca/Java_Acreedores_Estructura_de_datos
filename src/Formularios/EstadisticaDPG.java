@@ -22,6 +22,7 @@ public class EstadisticaDPG extends javax.swing.JPanel {
     //Inicializaciones
     DAOEntidades dao = new DAOEntidadesImpl();
     TADListaEnlazadaInterface listaGlobal = new TADListaEnlazadaImpl();
+    TADListaEnlazadaInterface listaQueSeExportara = new TADListaEnlazadaImpl();
     
     public EstadisticaDPG() {
         initComponents();
@@ -42,6 +43,8 @@ public class EstadisticaDPG extends javax.swing.JPanel {
         tabla_acreedores.getTableHeader().setBackground(new Color(0x617796));
         tabla_acreedores.getTableHeader().setForeground(Color.WHITE);
         modeloTabla.setRowCount(0);
+        
+        listaQueSeExportara = listaOrdenada;
         
         Nodo iterador = ((TADListaEnlazadaImpl) listaOrdenada).getCabecera();
         String fila1, fila2, fila3;
@@ -149,6 +152,7 @@ public class EstadisticaDPG extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
+        jcDepa = new javax.swing.JComboBox<>();
         b = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         b1 = new javax.swing.JPanel();
@@ -157,7 +161,6 @@ public class EstadisticaDPG extends javax.swing.JPanel {
         tabla_acreedores = new javax.swing.JTable();
         tex = new javax.swing.JScrollPane();
         resultadosProvincias = new javax.swing.JPanel();
-        jcDepa = new javax.swing.JComboBox<>();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -168,7 +171,7 @@ public class EstadisticaDPG extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Nunito", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Montos acumulados por Depto. y Pliego según Nivel de Gobierno");
-        panelfill.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 1010, -1));
+        panelfill.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 1010, -1));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(250, 250, 250), new java.awt.Color(250, 250, 250), new java.awt.Color(250, 250, 250), new java.awt.Color(250, 250, 250)));
@@ -181,6 +184,16 @@ public class EstadisticaDPG extends javax.swing.JPanel {
         jLabel3.setText("Departamento:");
         jLabel3.setPreferredSize(new java.awt.Dimension(119, 40));
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 100, -1));
+
+        jcDepa.setFont(new java.awt.Font("Nunito", 0, 14)); // NOI18N
+        jcDepa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Amazonas", "Ancash", "Apurimac", "Arequipa", "Ayacucho", "Cajamarca", "Callao", "Cusco", "Huancavelica", "Huanuco", "Ica", "Junin", "La Libertad", "Lambayeque", "Lima", "Loreto", "Madre de Dios", "Moquegua", "Pasco", "Piura", "Puno", "San Martin", "Tacna", "Tumbes", "Ucayali" }));
+        jcDepa.setPreferredSize(new java.awt.Dimension(72, 40));
+        jcDepa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcDepaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jcDepa, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 160, -1));
 
         b.setBackground(new java.awt.Color(1, 169, 172));
         b.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -201,9 +214,9 @@ public class EstadisticaDPG extends javax.swing.JPanel {
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("Totalizar");
-        b.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 30));
+        b.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 30));
 
-        jPanel1.add(b, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 520, 90, -1));
+        jPanel1.add(b, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 540, 100, -1));
 
         b1.setBackground(new java.awt.Color(1, 169, 172));
         b1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -224,9 +237,9 @@ public class EstadisticaDPG extends javax.swing.JPanel {
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("Exportar");
-        b1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 30));
+        b1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 80, 30));
 
-        jPanel1.add(b1, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 520, 90, -1));
+        jPanel1.add(b1, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 540, 100, -1));
 
         tabla_acreedores.setFont(new java.awt.Font("Nunito", 0, 12)); // NOI18N
         tabla_acreedores.setModel(new javax.swing.table.DefaultTableModel(
@@ -258,7 +271,10 @@ public class EstadisticaDPG extends javax.swing.JPanel {
             tabla_acreedores.getColumnModel().getColumn(5).setPreferredWidth(20);
         }
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 710, 470));
+        jScrollPane1.getVerticalScrollBar().setUnitIncrement(16);
+        jScrollPane1.getVerticalScrollBar().setBlockIncrement(50);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 710, 490));
 
         tex.setBorder(null);
 
@@ -266,19 +282,12 @@ public class EstadisticaDPG extends javax.swing.JPanel {
         resultadosProvincias.setLayout(new javax.swing.BoxLayout(resultadosProvincias, javax.swing.BoxLayout.Y_AXIS));
         tex.setViewportView(resultadosProvincias);
 
-        jPanel1.add(tex, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 40, 180, 460));
+        tex.getVerticalScrollBar().setUnitIncrement(16);
+        tex.getVerticalScrollBar().setBlockIncrement(50);
 
-        jcDepa.setFont(new java.awt.Font("Nunito", 0, 14)); // NOI18N
-        jcDepa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Amazonas", "Ancash", "Apurimac", "Arequipa", "Ayacucho", "Cajamarca", "Callao", "Cusco", "Huancavelica", "Huanuco", "Ica", "Junin", "La Libertad", "Lambayeque", "Lima", "Loreto", "Madre de Dios", "Moquegua", "Pasco", "Piura", "Puno", "San Martin", "Tacna", "Tumbes", "Ucayali" }));
-        jcDepa.setPreferredSize(new java.awt.Dimension(72, 40));
-        jcDepa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jcDepaActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jcDepa, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 160, -1));
+        jPanel1.add(tex, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 60, 180, 440));
 
-        panelfill.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 970, 580));
+        panelfill.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 1000, 600));
 
         add(panelfill, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1050, 680));
     }// </editor-fold>//GEN-END:initComponents
@@ -296,7 +305,7 @@ public class EstadisticaDPG extends javax.swing.JPanel {
     }//GEN-LAST:event_bMouseExited
 
     private void b1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b1MouseClicked
-        // TODO add your handling code here:
+        dao.ExportaCSV(panelfill, (TADListaEnlazadaImpl) listaQueSeExportara);
     }//GEN-LAST:event_b1MouseClicked
 
     private void b1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b1MouseEntered
@@ -322,18 +331,39 @@ public class EstadisticaDPG extends javax.swing.JPanel {
 
         DefaultTableModel modeloTabla = (DefaultTableModel) tabla_acreedores.getModel();
         modeloTabla.setRowCount(0);
+        
+        listaQueSeExportara = listaOrdenadaProvincias;
+                
         Nodo iterador = ((TADListaEnlazadaImpl) listaOrdenadaProvincias).getCabecera();
         //se itera la lista
+        String fila1, fila2,fila3;
+
         while (iterador != null) {
             EntidadGubernamental entidad = iterador.getContenido();
+            if (entidad.getDescNivelGobierno().trim().equals("GOBIERNO LOCAL")) {
+                fila1 = entidad.getDescNivelGobierno().trim();
+                fila2 = "-----------------------";
+                fila3 = "-----------------------";
+            }else if(entidad.getDescNivelGobierno().trim().equals("GOBIERNO NACIONAL")){
+                fila1 = "-----------------------";
+                fila2 = entidad.getDescNivelGobierno().trim();
+                fila3 = "-----------------------";
+            }else if(entidad.getDescNivelGobierno().trim().equals("GOBIERNO REGIONAL")){
+                fila1 = "-----------------------";
+                fila2 = "-----------------------";
+                fila3 = entidad.getDescNivelGobierno().trim();
+            }else{
+                fila1 = "-----------------------";
+                fila2 = "-----------------------";
+                fila3 = "-----------------------";
+            }
             Object[] rowData = {
                 entidad.getRuc(),
-
-                entidad.getRemypeDepartamento(),
-                entidad.getRemypeProvincia(),
-                entidad.getRemypeDistrito(),
-                entidad.getMontoDeuda(),
-
+                entidad.getDescPliego(),
+                fila1,
+                fila2,
+                fila3,
+                entidad.getMontoDeuda()
             };
             modeloTabla.addRow(rowData);
             iterador = iterador.getSiguiente();
